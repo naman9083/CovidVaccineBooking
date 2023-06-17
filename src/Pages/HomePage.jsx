@@ -355,6 +355,7 @@ const HomePage = () => {
                   value={state}
                   maxRows={1}
                   margin="dense"
+                  placeholder="Select State"
                   onChange={handleStateChange}
                   style={{
                     width: 200,
@@ -377,6 +378,7 @@ const HomePage = () => {
                   variant="outlined"
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
+                  placeholder="Select City"
                   value={centre}
                   onChange={handleCityChange}
                   maxRows={1}
