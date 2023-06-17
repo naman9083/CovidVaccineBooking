@@ -18,52 +18,52 @@ import { db } from "../../Firebase";
 import { CovidState } from "../../Config/CovidContext";
 import { useNavigate } from "react-router-dom";
 
+const useStyles = makeStyles({
+  table: {
+    minWidth: 650,
+  },
+  row: {
+    backgroundColor: "#fff",
+    cursor: "pointer",
+    "&:hover": {
+      backgroundColor: "#f5f5f5",
+    },
+    fontFamily: "Montserrat",
+  },
+  main: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    flexDirection: "column",
+    gap: 10,
+    paddingLeft: 20,
+    paddingRight: 20,
+    marginBottom: 20,
+    marginTop: 20,
+    width: "98%",
+    
+    fontFamily: "Roboto",
+    fontSize: "40px",
+    color: "#fff",
+    backgroundColor: "#fff",
+  },
+  pagination: {
+    "& .MuiPaginationItem-root": {
+      color: "#f51348",
+      fontWeight: "bold",
+      fontSize: "20px",
+    },
+  },
+  rowName: {
+    fontFamily: "Montserrat",
+    fontSize: "20px",
+    width: "50%",
+
+    color: "#f51348",
+  },
+});
 const StatesManage = () => {
   const navigate = useNavigate();
-  const useStyles = makeStyles({
-    table: {
-      minWidth: 650,
-    },
-    row: {
-      backgroundColor: "#fff",
-      cursor: "pointer",
-      "&:hover": {
-        backgroundColor: "#f5f5f5",
-      },
-      fontFamily: "Montserrat",
-    },
-    main: {
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-      flexDirection: "column",
-      gap: 10,
-      paddingLeft: 20,
-      paddingRight: 20,
-      marginBottom: 20,
-      marginTop: 20,
-      width: "98%",
-      
-      fontFamily: "Roboto",
-      fontSize: "40px",
-      color: "#fff",
-      backgroundColor: "#fff",
-    },
-    pagination: {
-      "& .MuiPaginationItem-root": {
-        color: "#f51348",
-        fontWeight: "bold",
-        fontSize: "20px",
-      },
-    },
-    rowName: {
-      fontFamily: "Montserrat",
-      fontSize: "20px",
-      width: "50%",
-
-      color: "#f51348",
-    },
-  });
 
   const [states, setState] = useState([]);
   const { setAlert, admin, setStateId } = CovidState();

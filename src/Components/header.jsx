@@ -14,7 +14,56 @@ import { auth } from "../Firebase";
 import AuthModal from "../Authentication/AuthModal";
 import AdminAuthModal from "../Authentication/AdminAuthModal";
 import { CovidState } from "../Config/CovidContext";
+const useStyles = makeStyles({
+  toolbar: {
+    width: "100%",
+    backgroundColor: "#017e7e",
+    color: "#fff",
+  },
+  Box: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    flexDirection: "row",
+  },
+  title: {
+   
+    flex: 1,
+    cursor: "pointer",
+  },
+  logo: {
+    width: 100,
+    cursor: "pointer",
+  
+  },
+  otherFields: {
+    display: "flex",
+    alignSelf: "right",
+    alignItems: "center",
+    justifyContent: "space-around",
+    cursor: "pointer",
+    
+    fontFamily: "Roboto",
+    width: "50%",
+   
+    fontSize: "40px",
 
+    fontWeight: "bold",
+    
+  },
+  TextButton: {
+    "&:hover": {
+      // light shade of the backgroundColor
+      color: "orange",
+    },
+  },
+  logoBox: {
+    display: "flex",
+    alignItems: "center",
+    minwidth: "20%",
+    flexDirection: "row",
+  },
+});
 const Header = () => {
   const [selectedOption, setSelectedOption] = useState("booking");
 
@@ -41,56 +90,7 @@ const Header = () => {
   }
   const { admin,isLoggedin } = CovidState();
 
-  const useStyles = makeStyles({
-    toolbar: {
-      width: "100%",
-      backgroundColor: "#017e7e",
-      color: "#fff",
-    },
-    Box: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "space-between",
-      flexDirection: "row",
-    },
-    title: {
-     
-      flex: 1,
-      cursor: "pointer",
-    },
-    logo: {
-      width: 100,
-      cursor: "pointer",
-    
-    },
-    otherFields: {
-      display: "flex",
-      alignSelf: "right",
-      alignItems: "center",
-      justifyContent: "space-around",
-      cursor: "pointer",
-      
-      fontFamily: "Roboto",
-      width: "50%",
-     
-      fontSize: "40px",
-
-      fontWeight: "bold",
-      
-    },
-    TextButton: {
-      "&:hover": {
-        // light shade of the backgroundColor
-        color: "orange",
-      },
-    },
-    logoBox: {
-      display: "flex",
-      alignItems: "center",
-      minwidth: "20%",
-      flexDirection: "row",
-    },
-  });
+  
   const navigate = useNavigate();
   const classes = useStyles();
   const lightTheme = createTheme({

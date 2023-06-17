@@ -2,53 +2,53 @@ import React from "react";
 
 import { Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+const useStyles = makeStyles(() => ({
+  //left image
+  left: {
+    width: "30%",
+    display: "flex",
+    alignItems: "center",
+  },
+  right: {
+    width: "50%",
+    color: "#000",
 
+    wordWrap: "break-word",
+
+    textAlign: "justify",
+    textAnchor: "middle",
+    fontFamily: "Roboto",
+    fontSize: "20px",
+  },
+  main: {
+    display: "flex",
+    justifyContent: "space-around",
+    flexDirection: "row",
+    alignItems: "center",
+    height: "100vh",
+  },
+  about: {
+    width: "100%",
+    textAlign: "justify",
+    textAnchor: "middle",
+
+    fontFamily: "Roboto",
+    fontSize: "20px",
+    color: "#000",
+  },
+  listItem: {
+    // change bullet color
+    "&::before": {
+      content: '"✓"',
+      color: "green",
+      fontSize: "20px",
+      fontWeight: "bold",
+      marginRight: "10px",
+    },
+  },
+}));
 const Precautions = () => {
-  const useStyles = makeStyles(() => ({
-    //left image
-    left: {
-      width: "30%",
-      display: "flex",
-      alignItems: "center",
-    },
-    right: {
-      width: "50%",
-      color: "#000",
-
-      wordWrap: "break-word",
-
-      textAlign: "justify",
-      textAnchor: "middle",
-      fontFamily: "Roboto",
-      fontSize: "20px",
-    },
-    main: {
-      display: "flex",
-      justifyContent: "space-around",
-      flexDirection: "row",
-      alignItems: "center",
-      height: "100vh",
-    },
-    about: {
-      width: "100%",
-      textAlign: "justify",
-      textAnchor: "middle",
-
-      fontFamily: "Roboto",
-      fontSize: "20px",
-      color: "#000",
-    },
-    listItem: {
-      // change bullet color
-      "&::before": {
-        content: '"✓"',
-        color: "green",
-        fontSize: "20px",
-        fontWeight: "bold",
-        marginRight: "10px",
-      },
-    },
-  }));
+  
   const classes = useStyles();
   return (
     <div id="precautions" className={classes.main}>

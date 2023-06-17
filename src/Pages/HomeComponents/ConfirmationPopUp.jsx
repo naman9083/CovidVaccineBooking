@@ -4,6 +4,24 @@ import React from "react";
 import { auth } from "../../Firebase";
 import { CovidState } from "../../Config/CovidContext";
 
+const useStyles = makeStyles((theme) => ({
+  modal: {
+    display: "flex",
+    alignItems: "center",
+    
+
+    justifyContent: "center",
+  },
+  field: {
+      display: "flex",
+      justifyContent: "space-between",  
+      alignItems: "center",
+      gap: 10,
+      padding: 10,
+      backgroundColor: "transparent",
+      color: "black",
+      },
+}));
 const ConfirmationPopUp = ({slot,index}) => {
   const {confirmOpen, setConfirmOpen} = CovidState();
   
@@ -11,24 +29,6 @@ const ConfirmationPopUp = ({slot,index}) => {
   const handleClose = () => {
     setConfirmOpen(false);
   };
-  const useStyles = makeStyles((theme) => ({
-    modal: {
-      display: "flex",
-      alignItems: "center",
-      
-
-      justifyContent: "center",
-    },
-    field: {
-        display: "flex",
-        justifyContent: "space-between",  
-        alignItems: "center",
-        gap: 10,
-        padding: 10,
-        backgroundColor: "transparent",
-        color: "black",
-        },
-  }));
   const classes = useStyles();
 
   return (

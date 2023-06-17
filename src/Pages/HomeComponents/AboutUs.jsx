@@ -1,40 +1,41 @@
 import { makeStyles } from "@material-ui/core";
 import { Typography } from "@mui/material";
 import React from "react";
+const useStyles = makeStyles(() => ({
+  left: {
+    width: "40%",
+    textAlign: "center",
+    fontFamily: "Roboto",
+    fontSize: "20px",
+    color: "#000",
+  },
+  right: {
+    width: "50%",
+    textAlign: "center",
+    fontFamily: "Roboto",
+    fontSize: "20px",
+    color: "#fff",
+  },
+  main: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    height: "100vh",
+    backgroundColor: "#edffff",
+  },
+  about: {
+    width: "100%",
+
+    textAlign: "justify",
+    textAnchor: "middle",
+
+    fontFamily: "Roboto",
+    fontSize: "20px",
+    color: "#000",
+  },
+}));
 const AboutUs = () => {
-  const useStyles = makeStyles(() => ({
-    left: {
-      width: "40%",
-      textAlign: "center",
-      fontFamily: "Roboto",
-      fontSize: "20px",
-      color: "#000",
-    },
-    right: {
-      width: "50%",
-      textAlign: "center",
-      fontFamily: "Roboto",
-      fontSize: "20px",
-      color: "#fff",
-    },
-    main: {
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-      height: "100vh",
-      backgroundColor: "#edffff",
-    },
-    about: {
-      width: "100%",
-
-      textAlign: "justify",
-      textAnchor: "middle",
-
-      fontFamily: "Roboto",
-      fontSize: "20px",
-      color: "#000",
-    },
-  }));
+  
   const classes = useStyles();
 
   return (

@@ -5,6 +5,17 @@ import StatesManage from "./AdminComponents/StatesManage";
 import { AppBar, Tab, Tabs, Typography } from "@material-ui/core";
 import CitiesManage from "./AdminComponents/CitiesManage";
 import { makeStyles } from "@mui/styles";
+const styles = makeStyles({
+  tabs: {
+    "& .MuiTab-textColorInherit.Mui-selected": {
+      color: "#f51348",
+      fontWeight: "bold",
+    },
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#000",
+  },
+});
 
 const AdminPanel = () => {
   const { admin } = CovidState();
@@ -12,17 +23,6 @@ const AdminPanel = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  const styles = makeStyles({
-    tabs: {
-      "& .MuiTab-textColorInherit.Mui-selected": {
-        color: "#f51348",
-        fontWeight: "bold",
-      },
-      fontSize: 20,
-      fontWeight: "bold",
-      color: "#000",
-    },
-  });
   const Cls = styles();
 
   return admin ? (

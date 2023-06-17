@@ -6,14 +6,14 @@ import Header from "./Components/header";
 import Alert from "./Components/Alert";
 import HomePage from "./Pages/HomePage";
 import AdminPanel from "./Pages/AdminPanel";
+const useStyles = makeStyles({
+  App: {
+    backgroundColor: "#fff",
+    color: "white",
+    minHeight: "100vh",
+  },
+});
 const App = () => {
-  const useStyles = makeStyles({
-    App: {
-      backgroundColor: "#fff",
-      color: "white",
-      minHeight: "100vh",
-    },
-  });
   const classes = useStyles();
   return (
     <div className={classes.App}>
