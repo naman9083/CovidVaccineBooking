@@ -8,11 +8,7 @@ const useStyles = makeStyles((theme) => ({
   modal: {
     display: "flex",
     alignItems: "center",
-    width: "100vw",
-    height: "100vh",
     backgroundColor: "rgba(0,0,0,0.5)",
-    
-    
 
     justifyContent: "center",
   },
