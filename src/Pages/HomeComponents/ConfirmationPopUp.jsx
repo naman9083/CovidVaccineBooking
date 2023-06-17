@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     gap: 10,
     padding: 10,
+    width: "100%",  
     backgroundColor: "transparent",
     color: "black",
   },
