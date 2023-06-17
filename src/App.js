@@ -2,7 +2,7 @@ import React from "react";
 
 import { Route, Routes } from "react-router-dom";
 import { makeStyles } from "@material-ui/styles";
-import Header from "./Components/header";
+import Header from "./Components/Header";
 import Alert from "./Components/Alert";
 import HomePage from "./Pages/HomePage";
 import AdminPanel from "./Pages/AdminPanel";

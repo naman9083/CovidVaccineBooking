@@ -27,7 +27,6 @@ const useStyles = makeStyles({
     color: "#fff",
     fontFamily: "Montserrat",
     fontSize: "20px",
-
   },
   logo: {
     width: 100,
@@ -85,19 +84,31 @@ const Header = () => {
   const classes = useStyles();
 
   return (
-    <Toolbar style={
-      {
+    <Toolbar
+      style={{
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-around",
         backgroundColor: "#017e7e",
         width: "100%",
-      }
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "row",
+          justifyContent: "space-between",
 
-    }>
-
-      <div className={classes.Box}>
+          backgroundColor: "#017e7e",
+          width: "100%",
+          paddingLeft: 40,
+          paddingRight: 40,
+          paddingTop: 10,
+          paddingBottom: 10,
+        }}
+      >
         <div className={classes.logoBox}>
           {/* About Us text */}
           <Typography variant="h6">
@@ -210,7 +221,6 @@ const Header = () => {
           )}
         </div>
       </div>
-    
     </Toolbar>
   );
 };

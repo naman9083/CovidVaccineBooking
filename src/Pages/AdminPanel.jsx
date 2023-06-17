@@ -406,6 +406,9 @@ const AdminPanel = () => {
               width: "100%",
               display: "flex",
               justifyContent: "center",
+              flexDirection: "row",
+              alignItems: "center",
+              
             }}
             classes={{ ul: statesStyle.pagination }}
             onChange={(_, value) => {
@@ -509,6 +512,7 @@ const AdminPanel = () => {
               width: "100%",
               display: "flex",
               justifyContent: "center",
+              flexDirection: "row",
               color: "pink",
               backgroundColor: "transparent",
             }}
