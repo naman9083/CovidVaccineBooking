@@ -76,13 +76,7 @@ const citiesStyles = makeStyles({
 
 const styles = makeStyles({
   tabs: {
-    "& .MuiTab-textColorInherit.Mui-selected": {
-      color: "#f51348",
-      fontWeight: "bold",
-    },
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "#000",
+   
   },
 });
 const statesStyles = makeStyles({
@@ -342,8 +336,22 @@ const AdminPanel = () => {
           style={{ backgroundColor: "#fff", color: "black", boxShadow: "none" }}
         >
           <Tabs value={value} onChange={handleChange}>
-            <Tab label="Manage States" className={Cls.tabs} />
-            <Tab label="Manage Citites" className={Cls.tabs} />
+            <Tab label="Manage States" className={Cls.tabs}  style={{
+             
+              fontSize: 20,
+              height: 50,
+              fontWeight: "bold",
+              color: "#000",
+            }}/>
+            <Tab label="Manage Citites"
+             style={{
+             
+             height: 50,
+             fontSize: 20,
+             fontWeight: "bold",
+             color: "#000",
+           }}
+             className={Cls.tabs} />
           </Tabs>
         </AppBar>
       </center>
