@@ -2,7 +2,6 @@ import {
   Button,
   Chip,
   LinearProgress,
-  MenuItem,
   Paper,
   Select,
   Table,
@@ -82,6 +81,8 @@ const BookingPage = () => {
     const querySnapshot = await getDocs(q);
     const cities = querySnapshot.docs.map((doc) => doc.data());
     setCity(cities);
+    console.log(city);
+    console.log(states);
     setLoading(false);
   };
   const handleCityChange = (event) => {
@@ -226,7 +227,7 @@ const BookingPage = () => {
                   height: 40,
                 }}
               >
-                {states.map((row) =>
+                {/* {states.map((row) =>
                   row.status ? (
                     <MenuItem key={row.name} value={row.name}>
                       {row.name}
@@ -234,7 +235,7 @@ const BookingPage = () => {
                   ) : (
                     <></>
                   )
-                )}
+                )} */}
               </Select>
               <Select
                 variant="outlined"
@@ -251,11 +252,11 @@ const BookingPage = () => {
                   height: 40,
                 }}
               >
-                {city.sort().map((c) => (
+                {/* {city.sort().map((c) => (
                   <MenuItem key={c.id} value={c.id}>
                     {c.id}
                   </MenuItem>
-                ))}
+                ))} */}
               </Select>
             </div>
 
