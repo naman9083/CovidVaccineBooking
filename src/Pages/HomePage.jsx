@@ -20,7 +20,7 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "#fff",
   },
 }));
-const HomePage = (sectionId) => {
+const HomePage = () => {
   
   const classes = useStyles();
   return (

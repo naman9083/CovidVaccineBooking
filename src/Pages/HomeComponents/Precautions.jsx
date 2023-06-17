@@ -1,6 +1,5 @@
 import React from "react";
-
-import { Typography } from "@mui/material";
+import { Typography } from "@material-ui/core";
 import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles(() => ({
   //left image
@@ -48,7 +47,6 @@ const useStyles = makeStyles(() => ({
   },
 }));
 const Precautions = () => {
-  
   const classes = useStyles();
   return (
     <div id="precautions" className={classes.main}>
