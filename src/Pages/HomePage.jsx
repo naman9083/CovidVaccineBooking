@@ -72,10 +72,10 @@ const useStyles = makeStyles(() => ({
     paddingLeft: 20,
     paddingRight: 20,
     maxwidth: "90%",
+    backgroundColor: "#ffff",
     fontFamily: "Roboto",
     fontSize: "40px",
     color: "#fff",
-    backgroundColor: "#fff",
   },
 }));
 const aboutUsStyles = makeStyles(() => ({

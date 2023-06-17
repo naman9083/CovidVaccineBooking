@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-
 import {
   AppBar,
-  
   Tab,
   Tabs,
   Typography,
@@ -19,7 +17,13 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@mui/styles";
 import { cities } from "../Config/cities";
-import { doc, setDoc,getDocs, deleteDoc,collection } from "@firebase/firestore";
+import {
+  doc,
+  setDoc,
+  getDocs,
+  deleteDoc,
+  collection,
+} from "@firebase/firestore";
 import { db } from "../Firebase";
 import { Pagination } from "@mui/material";
 import { useNavigate } from "react-router-dom";
@@ -69,8 +73,6 @@ const citiesStyles = makeStyles({
     backgroundColor: "#fff",
   },
 });
-
-
 
 const styles = makeStyles({
   tabs: {
@@ -133,7 +135,7 @@ const AdminPanel = () => {
   const cityStyle = citiesStyles();
   const navigate = useNavigate();
   const [states, setState] = useState([]);
-  const { setAlert, admin, setStateId, stateId  } = CovidState();
+  const { setAlert, admin, setStateId, stateId } = CovidState();
   const [page, setPage] = useState(1);
   const statesStyle = statesStyles();
   const [loading, setLoading] = useState(false);
@@ -157,7 +159,6 @@ const AdminPanel = () => {
     "Aster CMI Hospital",
     "Nanavati Hospital",
     "Jaslok Hospital",
-
   ];
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -246,16 +247,9 @@ const AdminPanel = () => {
       }
     }
   };
-  
 
+  //city
 
-
-
-
-
-
-  //city 
-  
   const handleAddC = async (id) => {
     try {
       setLoadingC(true);
@@ -270,21 +264,18 @@ const AdminPanel = () => {
         )
           .toISOString()
           .slice(0, 10)}`,
-          centre: centre[indexC],
+        centre: centre[indexC],
         timings: [
-          
-            "10 AM - 11 AM",
-            "11 AM - 12 PM",
-            "12 PM - 1 PM",
-            "1 PM - 2 PM",
-            "2 PM - 3 PM",
-            "3 PM - 4 PM",
-            "4 PM - 5 PM",
-
-          
+          "10 AM - 11 AM",
+          "11 AM - 12 PM",
+          "12 PM - 1 PM",
+          "1 PM - 2 PM",
+          "2 PM - 3 PM",
+          "3 PM - 4 PM",
+          "4 PM - 5 PM",
         ],
-          available: "true" ,
-          vaccine: "covishield",
+        available: "true",
+        vaccine: "covishield",
       });
       setAlert({
         open: true,
@@ -292,7 +283,7 @@ const AdminPanel = () => {
         type: "success",
       });
       setLoadingC(false);
-      setIndexC((indexC + 1)%indexC.length);
+      setIndexC((indexC + 1) % indexC.length);
     } catch (e) {
       setAlert({
         open: true,
@@ -322,10 +313,6 @@ const AdminPanel = () => {
     }
   };
 
-  
-
-
-
   return admin ? (
     <div
       style={{
@@ -339,7 +326,6 @@ const AdminPanel = () => {
       }}
     >
       <Typography
-      
         variant="h3"
         component="div"
         gutterBottom
@@ -392,6 +378,7 @@ const AdminPanel = () => {
                     .map((row) => (
                       <TableRow
                         key={row.name}
+                        style={{ backgroundColor: "#fff" }}
                         className={statesStyle.row}
                         sx={{
                           "&:last-child td, &:last-child th": { border: 0 },
@@ -468,103 +455,104 @@ const AdminPanel = () => {
         </div>
       )}
       {value === 1 && (
-    <div className={cityStyle.main}>
-     <p
-     style={{
-        color: "red",
-        fontWeight: "700",
-        fontSize: "20px",
-        fontFamily: "Montserrat",
-
-     }}
-     >Note! You have to Select State to Manage Cities</p>
-      <TableContainer component={Paper}>
-        {loadingC ? (
-          <LinearProgress style={{ backgroundColor: "gold" }} />
-        ) : (
-          <Table className={cityStyle.table} aria-label="simple table">
-            <TableHead style={{ backgroundColor: "#fff" }}>
-              {["City", "No of slots", "Add", "Delete"].map((head) => (
-                <TableCell
-                  style={{
-                    color: "black",
-                    fontWeight: "700",
-                    fontSize: "20px",
-                    fontFamily: "Montserrat",
-                  }}
-                  key={head}
-                  align={head === "City" ? "inherit" : "right"}
-                >
-                  {head}
-                </TableCell>
-              ))}
-            </TableHead>
-            <TableBody>
-              {cities[stateId]
-                .sort()
-                .slice((pageC - 1) * 6, (pageC - 1) * 6 + 6)
-                .map((city) => (
-                  <TableRow key={city} className={cityStyle.row}>
+        <div className={cityStyle.main}>
+          <p
+            style={{
+              color: "red",
+              fontWeight: "700",
+              fontSize: "20px",
+              fontFamily: "Montserrat",
+            }}
+          >
+            Note! You have to Select State to Manage Cities
+          </p>
+          <TableContainer component={Paper}>
+            {loadingC ? (
+              <LinearProgress style={{ backgroundColor: "gold" }} />
+            ) : (
+              <Table className={cityStyle.table} aria-label="simple table">
+                <TableHead style={{ backgroundColor: "#fff" }}>
+                  {["City", "No of slots", "Add", "Delete"].map((head) => (
                     <TableCell
-                      component="th"
-                      scope="row"
-                      className={cityStyle.rowName}
+                      style={{
+                        color: "black",
+                        fontWeight: "700",
+                        fontSize: "20px",
+                        fontFamily: "Montserrat",
+                      }}
+                      key={head}
+                      align={head === "City" ? "inherit" : "right"}
                     >
-                      {city}
+                      {head}
                     </TableCell>
-                    <TableCell align="right">
-                      <Button
-                        variant="text"
-                        color="secondary"
-                        onClick={() => {}}
-                      >
-                        Edit
-                      </Button>
-                    </TableCell>
-                    <TableCell align="right">
-                      <Button
-                        variant="text"
-                        color="secondary"
-                        onClick={() => {
-                          handleAddC(city);
-                        }}
-                      >
-                        Add
-                      </Button>
-                    </TableCell>
-                    <TableCell align="right">
-                      <Button
-                        variant="text"
-                        color="secondary"
-                        onClick={() => {
-                          handleDeleteC(city);
-                        }}
-                      >
-                        Delete
-                      </Button>
-                    </TableCell>
-                  </TableRow>
-                ))}
-            </TableBody>
-          </Table>
-        )}
-      </TableContainer>
-      <Pagination
-        count={Number.parseInt(cities[stateId].length / 4) - 2}
-        style={{
-          padding: 20,
-          width: "100%",
-          display: "flex",
-          justifyContent: "center",
-        }}
-        classes={{ ul: cityStyle.pagination }}
-        onChange={(_, value) => {
-          setPageC(value);
-          window.scroll(450, 900);
-        }}
-      />
-    </div>
-  )}
+                  ))}
+                </TableHead>
+                <TableBody>
+                  {cities[stateId]
+                    .sort()
+                    .slice((pageC - 1) * 6, (pageC - 1) * 6 + 6)
+                    .map((city) => (
+                      <TableRow key={city} className={cityStyle.row}>
+                        <TableCell
+                          component="th"
+                          scope="row"
+                          className={cityStyle.rowName}
+                        >
+                          {city}
+                        </TableCell>
+                        <TableCell align="right">
+                          <Button
+                            variant="text"
+                            color="secondary"
+                            onClick={() => {}}
+                          >
+                            Edit
+                          </Button>
+                        </TableCell>
+                        <TableCell align="right">
+                          <Button
+                            variant="text"
+                            color="secondary"
+                            onClick={() => {
+                              handleAddC(city);
+                            }}
+                          >
+                            Add
+                          </Button>
+                        </TableCell>
+                        <TableCell align="right">
+                          <Button
+                            variant="text"
+                            color="secondary"
+                            onClick={() => {
+                              handleDeleteC(city);
+                            }}
+                          >
+                            Delete
+                          </Button>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                </TableBody>
+              </Table>
+            )}
+          </TableContainer>
+          <Pagination
+            count={Number.parseInt(cities[stateId].length / 4) - 2}
+            style={{
+              padding: 20,
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+            }}
+            classes={{ ul: cityStyle.pagination }}
+            onChange={(_, value) => {
+              setPageC(value);
+              window.scroll(450, 900);
+            }}
+          />
+        </div>
+      )}
     </div>
   ) : (
     <div
