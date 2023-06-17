@@ -26,7 +26,7 @@ import { useNavigate } from "react-router-dom";
 import { CovidState } from "../Config/CovidContext";
 const citiesStyles = makeStyles({
   table: {
-    minWidth: 650,
+    width: "100%",
   },
   row: {
     backgroundColor: "#fff",

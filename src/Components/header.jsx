@@ -61,6 +61,7 @@ const useStyles = makeStyles({
     logoBox: {
       display: "flex",
       alignItems: "center",
+      backgroundColor: "#017e7e",
       minwidth: "20%",
       flexDirection: "row",
     },
@@ -144,6 +145,7 @@ const Header = () => {
           <div className={classes.otherFields}>
             <div style={{display:admin?"none":"flex",
             flexDirection:"row",alignItems:"center",justifyContent:"space-around",
+            backgroundColor:"#017e7e",
             width:"100%"
           }}>
            
