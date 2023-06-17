@@ -93,7 +93,9 @@ const Header = () => {
             {admin ? "Hello! Admin" : "Hello! User"}
           </Typography>
 
-          <img src={logo} alt="logo" className={classes.logo} />
+          <img src={logo} alt="logo" 
+          style={{ width: "100px", height: "100px",backgroundColor:"transparent"}}
+           />
           <Typography
             variant="h6"
             onClick={
