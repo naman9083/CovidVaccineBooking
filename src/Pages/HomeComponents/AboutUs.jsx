@@ -4,14 +4,14 @@ import React from "react";
 const useStyles = makeStyles(() => ({
   left: {
     width: "40%",
-    textAlign: "center",
+    textalign: "center",
     fontFamily: "Roboto",
     fontSize: "20px",
     color: "#000",
   },
   right: {
     width: "50%",
-    textAlign: "center",
+    textalign: "center",
     fontFamily: "Roboto",
     fontSize: "20px",
     color: "#fff",
@@ -26,7 +26,7 @@ const useStyles = makeStyles(() => ({
   about: {
     width: "100%",
 
-    textAlign: "justify",
+    textalign: "justify",
     textAnchor: "middle",
 
     fontFamily: "Roboto",
@@ -35,14 +35,13 @@ const useStyles = makeStyles(() => ({
   },
 }));
 const AboutUs = () => {
-  
   const classes = useStyles();
 
   return (
     <div id="aboutUs" className={classes.main}>
       <div className={classes.left}>
         <Typography
-          textAlign={"justify"}
+          textalign={"justify"}
           variant="h3"
           component="div"
           gutterBottom
@@ -50,7 +49,7 @@ const AboutUs = () => {
           Our Mission
         </Typography>
         <Typography
-          textAlign={"justify"}
+          textalign={"justify"}
           variant="h6"
           component="div"
           gutterBottom

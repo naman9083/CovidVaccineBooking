@@ -1,0 +1,90 @@
+/* .toolbar: {
+    width: "100%",
+    backgroundColor: "#017e7e",
+    color: "#fff",
+  };
+  Box: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    flexDirection: "row",
+  },
+  title: {
+   
+    flex: 1,
+    cursor: "pointer",
+  },
+  logo: {
+    width: 100,
+    cursor: "pointer",
+  
+  };
+  otherFields: {
+    display: "flex",
+    alignSelf: "right",
+    alignItems: "center",
+    justifyContent: "space-around",
+    cursor: "pointer",
+    
+    fontFamily: "Roboto",
+    width: "50%",
+   
+    fontSize: "40px",
+
+    fontWeight: "bold",
+    
+  },
+  TextButton: {
+    "&:hover": {
+      // light shade of the backgroundColor
+      color: "orange",
+    },
+  },
+  logoBox: {
+    display: "flex",
+    alignItems: "center",
+    minwidth: "20%",
+    flexDirection: "row",
+  }, */
+/* Compare this snippet from src\Components\header.css: */
+.toolbar {
+  width: 100%;
+  background-color: #017e7e;
+  color: #fff;
+}
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.title {
+  flex: 1;
+  cursor: pointer;
+}
+.logo {
+  width: 100px;
+  cursor: pointer;
+}
+.otherFields {
+  display: flex;
+  align-self: right;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+  font-family: Roboto;
+  width: 50%;
+  font-size: 40px;
+  font-weight: bold;
+}
+.textButton {
+  &:hover {
+    color: orange;
+  }
+}
+.logoBox {
+  display: flex;
+  align-items: center;
+  min-width: 20%;
+  flex-direction: row;
+} 

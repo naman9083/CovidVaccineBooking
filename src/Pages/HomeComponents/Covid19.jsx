@@ -25,7 +25,7 @@ const Covid19 = () => {
     },
     main: {
       display: "flex",
-        
+
       alignItems: "center",
       flexDirection: "row",
       height: "100vh",
@@ -33,7 +33,7 @@ const Covid19 = () => {
       padding: 20,
       width: "100%",
       fontFamily: "Roboto",
-      textAlign: "justify",
+      textalign: "justify",
       fontSize: "40px",
       color: "#000",
       backgroundColor: "#edffff",
@@ -42,10 +42,10 @@ const Covid19 = () => {
   const classes = useStyles();
 
   return (
-    <div id="covid19"  className={classes.main}>
+    <div id="covid19" className={classes.main}>
       <div className={classes.left}>
         <Typography
-          textAlign={"justify"}
+          textalign={"justify"}
           variant="h3"
           component="div"
           gutterBottom
@@ -53,7 +53,7 @@ const Covid19 = () => {
           COVID-19
         </Typography>
         <Typography
-          textAlign={"justify"}
+          textalign={"justify"}
           variant="h6"
           component="div"
           gutterBottom

@@ -5,7 +5,7 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import { AppBar, Box, Button, Tab, Tabs } from "@material-ui/core";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { auth,db } from "../Firebase";
+import { auth, db } from "../Firebase";
 import { doc, setDoc } from "@firebase/firestore";
 import GoogleButton from "react-google-button";
 import { CovidState } from "../Config/CovidContext";
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: 0,
     display: "flex",
     flexDirection: "column",
-    textAlign: "center",
+    textalign: "center",
     gap: 20,
     fontSize: 20,
   },
@@ -36,8 +36,8 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 10,
     cursor: "pointer",
     borderRadius: 10,
-    
-    textAlign: "center",
+
+    textalign: "center",
     maxWidth: 200,
     border: "2px solid #fff",
     padding: 5,
@@ -58,15 +58,16 @@ const AuthModal = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  const { setAlert,setLoggedin } = CovidState();
+  const { setAlert, setLoggedin } = CovidState();
   const signInWithGoogle = () => {
-    signInWithPopup(auth, googleProvider).then(async(result) => {
-      setAlert({
-        type: "success",
-        message: `Logged In Successfully. Welcome ${result.user.email} to CoviFree`,
-        open: true,
-      });
-      const id = auth.currentUser.uid;
+    signInWithPopup(auth, googleProvider)
+      .then(async (result) => {
+        setAlert({
+          type: "success",
+          message: `Logged In Successfully. Welcome ${result.user.email} to CoviFree`,
+          open: true,
+        });
+        const id = auth.currentUser.uid;
         const userRef = doc(db, "users", id);
         await setDoc(userRef, {
           username: result.user.displayName,
@@ -77,29 +78,24 @@ const AuthModal = () => {
           boosterCount: 0,
           vaccineDate: "",
           boosterDate: "",
-
         });
-      const data ={
-        username:result.user.displayName,
-        email:result.user.email,
-        id:result.user.uid,
-        role:"user"
+        const data = {
+          username: result.user.displayName,
+          email: result.user.email,
+          id: result.user.uid,
+          role: "user",
+        };
+        localStorage.setItem("user", JSON.stringify(data));
 
-
-      }
-      localStorage.setItem("user", JSON.stringify(data));
-      
-
-      setLoggedin(true);
-
-    }).catch((error) => {
-      setAlert({
-        open: true,
-        message: error.message,
-        type: "error",
+        setLoggedin(true);
+      })
+      .catch((error) => {
+        setAlert({
+          open: true,
+          message: error.message,
+          type: "error",
         });
-    });
-    
+      });
   };
   const handleOpen = () => {
     setOpen(true);
@@ -113,10 +109,9 @@ const AuthModal = () => {
       <Button
         variant="outlined"
         className={classes.customButton}
-        
         onClick={handleOpen}
       >
-       User
+        User
       </Button>
       <Modal
         aria-labelledby="transition-modal-title"
@@ -143,16 +138,18 @@ const AuthModal = () => {
               >
                 <Tab label="Login" />
                 <Tab label="SignUp" />
-           
-              
               </Tabs>
             </AppBar>
-            {value === 0 &&<Login handleClose={handleClose}/>}
+            {value === 0 && <Login handleClose={handleClose} />}
             {value === 1 && <SignUp handleClose={handleClose} />}
             <Box className={classes.google}>
-              <span style={{
-                color: "black",
-              }}>OR</span>
+              <span
+                style={{
+                  color: "black",
+                }}
+              >
+                OR
+              </span>
               <GoogleButton
                 style={{ width: "100%", outline: "none", border: "none" }}
                 onClick={() => {

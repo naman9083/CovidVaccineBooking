@@ -29,40 +29,40 @@ import { db } from "../../Firebase";
 import { CovidState } from "../../Config/CovidContext";
 import ConfirmationPopUp from "./ConfirmationPopUp";
 
-const useStyles = makeStyles(() => ({
-  main: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "column",
-    gap: 20,
-    paddingLeft: 20,
-    marginTop: 10,
-    paddingRight: 20,
-    minHeight: "80vh",
-    maxWidth: "98%",
-    fontFamily: "Roboto",
-    fontSize: "40px",
-    color: "#fff",
-    backgroundColor: "#fff",
-  },
-  title: {
-    color: "#017e7e",
-    fontWeight: "bold",
-    flex: 1,
-    cursor: "pointer",
-    fontSize: "40px",
-  },
-  calendar: {
-    marginTop: "20px",
-    marginBottom: "20px",
-    color: "#000",
-    fontSize: "20px",
-    textDecoration: "none",
-    backgroundColor: "#fff",
-  },
-}));
 const BookingPage = () => {
+  const useStyles = makeStyles(() => ({
+    main: {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      flexDirection: "column",
+      gap: 20,
+      paddingLeft: 20,
+      marginTop: 10,
+      paddingRight: 20,
+      minHeight: "80vh",
+      maxWidth: "98%",
+      fontFamily: "Roboto",
+      fontSize: "40px",
+      color: "#fff",
+      backgroundColor: "#fff",
+    },
+    title: {
+      color: "#017e7e",
+      fontWeight: "bold",
+      flex: 1,
+      cursor: "pointer",
+      fontSize: "40px",
+    },
+    calendar: {
+      marginTop: "20px",
+      marginBottom: "20px",
+      color: "#000",
+      fontSize: "20px",
+      textDecoration: "none",
+      backgroundColor: "#fff",
+    },
+  }));
   const classes = useStyles();
   const [state, setState] = useState("Select");
   const [city, setCity] = useState([]);

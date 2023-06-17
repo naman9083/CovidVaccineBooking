@@ -38,7 +38,7 @@ const AdminPanel = () => {
       }}
     >
       <Typography
-        textAlign={"justify"}
+        textalign={"justify"}
         variant="h3"
         component="div"
         gutterBottom

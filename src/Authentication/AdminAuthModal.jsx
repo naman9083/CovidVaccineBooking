@@ -5,7 +5,6 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import { AppBar, Button, Typography } from "@material-ui/core";
 
-
 import AdminLogin from "./adminLogin";
 
 const useStyles = makeStyles((theme) => ({
@@ -24,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: 0,
     display: "flex",
     flexDirection: "column",
-    textAlign: "center",
+    textalign: "center",
     gap: 20,
     fontSize: 20,
   },
@@ -34,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 10,
     width: 100,
 
-    textAlign: "center",
+    textalign: "center",
     maxWidth: 200,
     border: "2px solid #fff",
     padding: 5,
@@ -51,15 +50,12 @@ const AdminAuthModal = () => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
-  
-  
   const handleOpen = () => {
     setOpen(true);
   };
 
   const handleClose = () => {
     setOpen(false);
-    
   };
   return (
     <div>
@@ -89,23 +85,26 @@ const AdminAuthModal = () => {
               style={{ backgroundColor: "transparent", color: "black" }}
               title="Login"
             >
-            <div style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: 10,
-                padding: 10,
-                backgroundColor: "transparent",
-                color: "black",
-                
-            }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: 10,
+                  padding: 10,
+                  backgroundColor: "transparent",
+                  color: "black",
+                }}
+              >
                 <Typography variant="h6" style={{ color: "black" }}>
-                    Admin Login
+                  Admin Login
                 </Typography>
-                
-            </div>
+              </div>
             </AppBar>
-            <AdminLogin handleClose={handleClose} setOpen={setOpen}></AdminLogin>
+            <AdminLogin
+              handleClose={handleClose}
+              setOpen={setOpen}
+            ></AdminLogin>
           </div>
         </Fade>
       </Modal>

@@ -17,54 +17,54 @@ import { Pagination } from "@mui/material";
 import { doc, setDoc, deleteDoc } from "@firebase/firestore";
 import { db } from "../../Firebase";
 
-const useStyles = makeStyles({
-  table: {
-    minWidth: 650,
-  },
-  row: {
-    backgroundColor: "#fff",
-    cursor: "pointer",
-    "&:hover": {
-      backgroundColor: "#f5f5f5",
-    },
-    fontFamily: "Montserrat",
-  },
-  pagination: {
-    "& .MuiPaginationItem-root": {
-      color: "#f51348",
-      fontWeight: "bold",
-      fontSize: "20px",
-    },
-  },
-  rowName: {
-    fontFamily: "Montserrat",
-    fontSize: "20px",
-    width: "50%",
-
-    color: "#f51348",
-  },
-  main: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    flexDirection: "column",
-    gap: 10,
-    paddingLeft: 20,
-    paddingRight: 20,
-    minHeight: "20vh",
-    maxheight: "70vh",
-    width: "98%",
-    marginTop: 20,
-
-    fontFamily: "Roboto",
-    fontSize: "40px",
-    color: "#fff",
-    backgroundColor: "#fff",
-  },
-});
 const CitiesManage = () => {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
+  const useStyles = makeStyles({
+    table: {
+      minWidth: 650,
+    },
+    row: {
+      backgroundColor: "#fff",
+      cursor: "pointer",
+      "&:hover": {
+        backgroundColor: "#f5f5f5",
+      },
+      fontFamily: "Montserrat",
+    },
+    pagination: {
+      "& .MuiPaginationItem-root": {
+        color: "#f51348",
+        fontWeight: "bold",
+        fontSize: "20px",
+      },
+    },
+    rowName: {
+      fontFamily: "Montserrat",
+      fontSize: "20px",
+      width: "50%",
+
+      color: "#f51348",
+    },
+    main: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      flexDirection: "column",
+      gap: 10,
+      paddingLeft: 20,
+      paddingRight: 20,
+      minHeight: "20vh",
+      maxheight: "70vh",
+      width: "98%",
+      marginTop: 20,
+
+      fontFamily: "Roboto",
+      fontSize: "40px",
+      color: "#fff",
+      backgroundColor: "#fff",
+    },
+  });
   const [index, setIndex] = useState(0);
   const centre = [
     "Apollo Hospital",

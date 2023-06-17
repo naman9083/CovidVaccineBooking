@@ -14,7 +14,7 @@ const useStyles = makeStyles(() => ({
 
     wordWrap: "break-word",
 
-    textAlign: "justify",
+    textalign: "justify",
     textAnchor: "middle",
     fontFamily: "Roboto",
     fontSize: "20px",
@@ -28,7 +28,7 @@ const useStyles = makeStyles(() => ({
   },
   about: {
     width: "100%",
-    textAlign: "justify",
+    textalign: "justify",
     textAnchor: "middle",
 
     fontFamily: "Roboto",
@@ -58,7 +58,7 @@ const Precautions = () => {
       </div>
       <div className={classes.right}>
         <Typography
-          textAlign={"justify"}
+          textalign={"justify"}
           variant="h3"
           component="div"
           gutterBottom
@@ -66,7 +66,7 @@ const Precautions = () => {
           Precautions from COVID-19
         </Typography>
         <Typography
-          textAlign={"justify"}
+          textalign={"justify"}
           variant="h6"
           component="div"
           gutterBottom
