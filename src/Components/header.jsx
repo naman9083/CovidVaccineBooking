@@ -1,37 +1,32 @@
 import React, { useState } from "react";
 import logo from "../Images/logo.png";
-import {
-  Button,
-  Typography,
-} from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import { auth } from "../Firebase";
 import AuthModal from "../Authentication/AuthModal";
 import AdminAuthModal from "../Authentication/AdminAuthModal";
 import { CovidState } from "../Config/CovidContext";
 const useStyles = makeStyles({
- 
   Box: {
     display: "flex",
     alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "space-between",
+
     backgroundColor: "#017e7e",
-    maxwidth: "100%",
+    width: "100%",
     paddingLeft: 40,
     paddingRight: 40,
     paddingTop: 10,
     paddingBottom: 10,
 
     height: 80,
-    justifyContent: "space-between",
-    flexDirection: "row",
   },
   title: {
     flex: 1,
-    
   },
   logo: {
     width: 100,
-    
   },
   otherFields: {
     display: "flex",
@@ -83,10 +78,18 @@ const Header = () => {
   const { admin, isLoggedin } = CovidState();
 
   const classes = useStyles();
-  
 
   return (
-   
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-around",
+        backgroundColor: "#017e7e",
+        width: "100%",
+      }}
+    >
       <div className={classes.Box}>
         <div className={classes.logoBox}>
           {/* About Us text */}
@@ -94,14 +97,16 @@ const Header = () => {
             {admin ? "Hello! Admin" : "Hello! User"}
           </Typography>
 
-          <img src={logo} alt="logo" 
-          style={{ width: "100px", height: "100px",backgroundColor:"transparent"}}
-           />
-          <Typography
-            variant="h6"
-            
-            className={classes.title}
-          >
+          <img
+            src={logo}
+            alt="logo"
+            style={{
+              width: "100px",
+              height: "100px",
+              backgroundColor: "transparent",
+            }}
+          />
+          <Typography variant="h6" className={classes.title}>
             Covi-Free
           </Typography>
         </div>
@@ -198,7 +203,7 @@ const Header = () => {
           )}
         </div>
       </div>
-    
+    </div>
   );
 };
 
