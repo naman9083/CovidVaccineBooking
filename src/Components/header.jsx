@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import logo from "../Images/logo.png";
-import { Button, Typography } from "@material-ui/core";
+import { Button, Toolbar, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import { auth } from "../Firebase";
 import AuthModal from "../Authentication/AuthModal";
@@ -24,6 +24,10 @@ const useStyles = makeStyles({
   },
   title: {
     flex: 1,
+    color: "#fff",
+    fontFamily: "Montserrat",
+    fontSize: "20px",
+
   },
   logo: {
     width: 100,
@@ -80,16 +84,18 @@ const Header = () => {
   const classes = useStyles();
 
   return (
-    <div
-      style={{
+    <Toolbar style={
+      {
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-around",
         backgroundColor: "#017e7e",
         width: "100%",
-      }}
-    >
+      }
+
+    }>
+
       <div className={classes.Box}>
         <div className={classes.logoBox}>
           {/* About Us text */}
@@ -203,7 +209,8 @@ const Header = () => {
           )}
         </div>
       </div>
-    </div>
+    
+    </Toolbar>
   );
 };
 
