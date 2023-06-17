@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Typography, makeStyles } from "@material-ui/core";
-
-import {
+import { Typography, makeStyles ,
   Button,
   Chip,
   LinearProgress,
@@ -14,7 +12,6 @@ import {
   TableHead,
   TableRow,
 } from "@material-ui/core";
-
 import {
   query,
   getDoc,
@@ -113,7 +110,7 @@ const aboutUsStyles = makeStyles(() => ({
     color: "#000",
   },
 }));
-const coviStyle = covi();
+
 const precauseStyles = makeStyles(() => ({
   //left image
   left: {
@@ -327,6 +324,7 @@ const HomePage = () => {
   }, []);
   const classes = useStyles();
   const about = aboutUsStyles();
+  const coviStyle = covi();
   return (
     <div className={classes.main}>
       <div id="" className={bookingStyle.main}>
@@ -550,44 +548,45 @@ const HomePage = () => {
       </div>
 
       <div id="covid19" className={coviStyle.main}>
-      <div className={coviStyle.left}>
-        <Typography
-          textalign={"justify"}
-          variant="h3"
-          component="div"
-          gutterBottom
-        >
-          COVID-19
-        </Typography>
-        <Typography
-          textalign={"justify"}
-          variant="h6"
-          component="div"
-          gutterBottom
-        >
-          COVID-19, also known as coronavirus disease 2019, is a respiratory
-          illness caused by a virus called SARS-CoV-2. The virus spreads through
-          respiratory droplets produced when an infected person coughs or
-          sneezes. Symptoms of COVID-19 can include fever, cough, shortness of
-          breath, fatigue, muscle aches, headache, sore throat, loss of taste or
-          smell, and diarrhea. Some people may experience no symptoms at all.
-          The best way to protect yourself from COVID-19 is to get vaccinated.
-          Vaccination can help to prevent you from getting sick, and if you do
-          get sick, it can help to reduce the severity of your illness. Other
-          ways to protect yourself from COVID-19 include wearing a mask, washing
-          your hands often, and avoiding close contact with people who are sick.
-          If you think you may have COVID-19, it is important to get tested.
-          Testing can help to identify people who are infected with the virus
-          and help to prevent the spread of the virus. COVID-19 is a serious
-          illness, but it is important to remember that most people who get sick
-          will recover. By following the precautions listed above, you can help
-          to protect yourself and others from COVID-19.
-        </Typography>
+        <div className={coviStyle.left}>
+          <Typography
+            textalign={"justify"}
+            variant="h3"
+            component="div"
+            gutterBottom
+          >
+            COVID-19
+          </Typography>
+          <Typography
+            textalign={"justify"}
+            variant="h6"
+            component="div"
+            gutterBottom
+          >
+            COVID-19, also known as coronavirus disease 2019, is a respiratory
+            illness caused by a virus called SARS-CoV-2. The virus spreads
+            through respiratory droplets produced when an infected person coughs
+            or sneezes. Symptoms of COVID-19 can include fever, cough, shortness
+            of breath, fatigue, muscle aches, headache, sore throat, loss of
+            taste or smell, and diarrhea. Some people may experience no symptoms
+            at all. The best way to protect yourself from COVID-19 is to get
+            vaccinated. Vaccination can help to prevent you from getting sick,
+            and if you do get sick, it can help to reduce the severity of your
+            illness. Other ways to protect yourself from COVID-19 include
+            wearing a mask, washing your hands often, and avoiding close contact
+            with people who are sick. If you think you may have COVID-19, it is
+            important to get tested. Testing can help to identify people who are
+            infected with the virus and help to prevent the spread of the virus.
+            COVID-19 is a serious illness, but it is important to remember that
+            most people who get sick will recover. By following the precautions
+            listed above, you can help to protect yourself and others from
+            COVID-19.
+          </Typography>
+        </div>
+        <div className={coviStyle.right}>
+          <img src={covid19} width="50%" height="100%" alt="" />
+        </div>
       </div>
-      <div className={coviStyle.right}>
-        <img src={covid19} width="50%" height="100%" alt="" />
-      </div>
-    </div>
 
       <div id="precautions" className={precautionS.main}>
         <div className={precautionS.left}>
