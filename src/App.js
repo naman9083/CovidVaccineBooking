@@ -20,7 +20,7 @@ const App = () => {
       <Header />
       <Routes>
         {/* Different section of homepage */}
-        <Route exact path="/" element={<HomePage />} />
+        <Route path="/" exact element={<HomePage />} />
 
         <Route path="/admin" element={<AdminPanel />} />
       </Routes>
