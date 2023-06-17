@@ -29,7 +29,6 @@ import { Pagination } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { CovidState } from "../Config/CovidContext";
 
-
 const statesStyles = makeStyles({
   table: {
     minWidth: 650,
@@ -76,7 +75,7 @@ const statesStyles = makeStyles({
 });
 const AdminPanel = () => {
   const [value, setValue] = useState(0);
- 
+
   const navigate = useNavigate();
   const [states, setState] = useState([]);
   const { setAlert, admin, setStateId, stateId } = CovidState();
@@ -287,33 +286,49 @@ const AdminPanel = () => {
           style={{ backgroundColor: "#fff", color: "black", boxShadow: "none" }}
         >
           <Tabs value={value} onChange={handleChange}>
-            <Tab label="Manage States" style={{
-             
-              fontSize: 20,
-              height: 50,
-              fontWeight: "bold",
-              color: "#000",
-            }}/>
-            <Tab label="Manage Citites"
-             style={{
-             
-             height: 50,
-             fontSize: 20,
-             fontWeight: "bold",
-             color: "#000",
-           }}
-             />
+            <Tab
+              label="Manage States"
+              style={{
+                fontSize: 20,
+                height: 50,
+                fontWeight: "bold",
+                color: "#000",
+              }}
+            />
+            <Tab
+              label="Manage Citites"
+              style={{
+                height: 50,
+                fontSize: 20,
+                fontWeight: "bold",
+                color: "#000",
+              }}
+            />
           </Tabs>
         </AppBar>
       </center>
       {value === 0 && (
-        <div className={statesStyle.main}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+            gap: 20,
+            color: "#000",
+            backgroundColor: "#fff",
+            width: "90%",
+            padding: 20,
+          }}
+        >
           <TableContainer component={Paper}>
             {loading ? (
               <LinearProgress style={{ backgroundColor: "pink" }} />
             ) : (
-              <Table sx={{ minWidth: 650 }} aria-label="simple table"
-              style={{ backgroundColor: "#fff",width:"100%" }}
+              <Table
+                sx={{ minWidth: 650 }}
+                aria-label="simple table"
+                style={{ backgroundColor: "#fff", width: "100%" }}
               >
                 <TableHead>
                   <TableRow>
@@ -408,9 +423,7 @@ const AdminPanel = () => {
               justifyContent: "center",
               flexDirection: "row",
               alignItems: "center",
-
             }}
-           
             onChange={(_, value) => {
               setPage(value);
               window.scroll(0, 450);
@@ -419,7 +432,19 @@ const AdminPanel = () => {
         </div>
       )}
       {value === 1 && (
-        <div className={statesStyle.main}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+            gap: 20,
+            color: "#000",
+            backgroundColor: "#fff",
+            width: "90%",
+            padding: 20,
+          }}
+        >
           <p
             style={{
               color: "red",
@@ -434,8 +459,9 @@ const AdminPanel = () => {
             {loadingC ? (
               <LinearProgress style={{ backgroundColor: "gold" }} />
             ) : (
-              <Table aria-label="simple table"
-              style={{ backgroundColor: "#fff",width:"100%" }}
+              <Table
+                aria-label="simple table"
+                style={{ backgroundColor: "#fff", width: "100%" }}
               >
                 <TableHead style={{ backgroundColor: "#fff" }}>
                   {["City", "No of slots", "Add", "Delete"].map((head) => (
@@ -458,8 +484,10 @@ const AdminPanel = () => {
                     .sort()
                     .slice((pageC - 1) * 6, (pageC - 1) * 6 + 6)
                     .map((city) => (
-                      <TableRow key={city} className={statesStyle.row}
-                      style={{ backgroundColor: "#fff" }}
+                      <TableRow
+                        key={city}
+                        className={statesStyle.row}
+                        style={{ backgroundColor: "#fff" }}
                       >
                         <TableCell
                           component="th"
@@ -515,14 +543,10 @@ const AdminPanel = () => {
               flexDirection: "row",
               color: "pink",
               backgroundColor: "transparent",
-            
-            
-          }}
-          
-           
+            }}
             onChange={(_, value) => {
               setPageC(value);
-              window.scroll(0,450);
+              window.scroll(0, 450);
             }}
           />
         </div>
