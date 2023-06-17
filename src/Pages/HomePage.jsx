@@ -422,6 +422,7 @@ const HomePage = () => {
                 alignItems: "center",
                 justifyContent: "center",
                 margin: "20px",
+                width: "100%",
               }}
             >
               <TableContainer component={Paper}>
@@ -542,7 +543,16 @@ const HomePage = () => {
               )}
             </div>
           ) : (
-            <></>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                margin: "20px",
+                width: "100%",
+              }}
+            ></div>
           )}
         </center>
       </div>
