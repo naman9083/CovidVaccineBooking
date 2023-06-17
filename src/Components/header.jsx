@@ -4,9 +4,7 @@ import {
   AppBar,
   Button,
   Container,
-  ThemeProvider,
   Typography,
-  createTheme,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import { useNavigate } from "react-router-dom";
@@ -84,14 +82,7 @@ const Header = () => {
 
   const navigate = useNavigate();
   const classes = useStyles();
-  const lightTheme = createTheme({
-    palette: {
-      primary: {
-        main: "#fff",
-      },
-      type: "light",
-    },
-  });
+  
 
   return (
     <AppBar className={classes.toolbar} position="static">

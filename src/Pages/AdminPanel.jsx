@@ -476,7 +476,9 @@ const AdminPanel = () => {
             {loadingC ? (
               <LinearProgress style={{ backgroundColor: "gold" }} />
             ) : (
-              <Table className={cityStyle.table} aria-label="simple table">
+              <Table className={cityStyle.table} aria-label="simple table"
+              style={{ backgroundColor: "#fff",width:"100%" }}
+              >
                 <TableHead style={{ backgroundColor: "#fff" }}>
                   {["City", "No of slots", "Add", "Delete"].map((head) => (
                     <TableCell
