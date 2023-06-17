@@ -4,20 +4,18 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import { Button, TextField } from "@material-ui/core";
 
-
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
   },
- 
 }));
 
 const EditPopUp = () => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
-  
+
   const handleOpen = () => {
     setOpen(true);
   };
@@ -27,9 +25,13 @@ const EditPopUp = () => {
   };
   return (
     <div>
-      <Button variant="text" color="secondary" onClick={() => {
-        handleOpen();
-      }}>
+      <Button
+        variant="text"
+        color="secondary"
+        onClick={() => {
+          handleOpen();
+        }}
+      >
         Edit
       </Button>
       <Modal
@@ -44,44 +46,40 @@ const EditPopUp = () => {
           timeout: 500,
         }}
       >
-
         <TextField
-            id="outlined-basic"
-            label="Edit No of Slots"
-            variant="outlined"
-            
-            style={{ width: "100%" }}
-            />
-            {/* edit centre */}
-            <TextField
-            id="outlined-basic"
-            label="Edit Centre"
-            variant="outlined"
-            style={{ width: "100%" }}
-            />
-            {/* edit date */}
-            <TextField
-            id="outlined-basic"
-            label="Edit Date"
-            variant="outlined"
-            style={{ width: "100%" }}
-            />
-            {/* edit time */}
-            <TextField
-            id="outlined-basic"
-            label="Edit Time"
-            variant="outlined"
-            style={{ width: "100%" }}
-            />
-            {/* edit vaccine */}
-            <TextField
-            id="outlined-basic"
-            label="Edit Vaccine"
-            variant="outlined"
-            style={{ width: "100%" }}
-            />
-
-
+          id="outlined-basic"
+          label="Edit No of Slots"
+          variant="outlined"
+          style={{ width: "100%" }}
+        />
+        {/* edit centre */}
+        <TextField
+          id="outlined-basic"
+          label="Edit Centre"
+          variant="outlined"
+          style={{ width: "100%" }}
+        />
+        {/* edit date */}
+        <TextField
+          id="outlined-basic"
+          label="Edit Date"
+          variant="outlined"
+          style={{ width: "100%" }}
+        />
+        {/* edit time */}
+        <TextField
+          id="outlined-basic"
+          label="Edit Time"
+          variant="outlined"
+          style={{ width: "100%" }}
+        />
+        {/* edit vaccine */}
+        <TextField
+          id="outlined-basic"
+          label="Edit Vaccine"
+          variant="outlined"
+          style={{ width: "100%" }}
+        />
       </Modal>
     </div>
   );

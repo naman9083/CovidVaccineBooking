@@ -51,7 +51,7 @@ const Precautions = () => {
   }));
   const classes = useStyles();
   return (
-    <div className={classes.main}>
+    <section id="precautions" className={classes.main}>
       <div className={classes.left}>
         <img
           src="https://www.cowin.gov.in/assets/images/Precaution_dose.svg"
@@ -105,7 +105,7 @@ const Precautions = () => {
           </ul>
         </Typography>
       </div>
-    </div>
+    </section>
   );
 };
 

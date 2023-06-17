@@ -194,7 +194,7 @@ const BookingPage = () => {
   }, []);
 
   return (
-    <div className={classes.main}>
+    <section id="" className={classes.main}>
       <center>
         <Typography className={classes.title} variant="h4" component="div">
           Search Your Nearest Vaccination Center
@@ -404,7 +404,7 @@ const BookingPage = () => {
           <></>
         )}
       </center>
-    </div>
+    </section>
   );
 };
 

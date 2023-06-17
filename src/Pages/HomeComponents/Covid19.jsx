@@ -42,7 +42,7 @@ const Covid19 = () => {
   const classes = useStyles();
 
   return (
-    <div  className={classes.main}>
+    <section id="covid19"  className={classes.main}>
       <div className={classes.left}>
         <Typography
           textAlign={"justify"}
@@ -80,7 +80,7 @@ const Covid19 = () => {
       <div className={classes.right}>
         <img src={covid19} width="50%" height="100%" alt="" />
       </div>
-    </div>
+    </section>
   );
 };
 
