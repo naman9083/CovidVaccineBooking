@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
-import { Button, TextField, Typography } from "@material-ui/core";
+import { Button, TextField } from "@material-ui/core";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -80,7 +80,7 @@ const EditPopUp = () => {
             variant="outlined"
             style={{ width: "100%" }}
             />
-            
+
 
       </Modal>
     </div>
