@@ -11,6 +11,7 @@ import { Typography, makeStyles ,
   TableContainer,
   TableHead,
   TableRow,
+  MenuItem,
 } from "@material-ui/core";
 import {
   query,
@@ -210,8 +211,7 @@ const HomePage = () => {
     const querySnapshot = await getDocs(q);
     const cities = querySnapshot.docs.map((doc) => doc.data());
     setCity(cities);
-    console.log(city);
-    console.log(states);
+    
     setLoading(false);
   };
   const handleCityChange = (event) => {
@@ -363,7 +363,7 @@ const HomePage = () => {
                     height: 40,
                   }}
                 >
-                  {/* {states.map((row) =>
+                  {states.map((row) =>
                   row.status ? (
                     <MenuItem key={row.name} value={row.name}>
                       {row.name}
@@ -371,7 +371,7 @@ const HomePage = () => {
                   ) : (
                     <></>
                   )
-                )} */}
+                )}
                 </Select>
                 <Select
                   variant="outlined"
@@ -388,11 +388,11 @@ const HomePage = () => {
                     height: 40,
                   }}
                 >
-                  {/* {city.sort().map((c) => (
+                  {city.sort().map((c) => (
                   <MenuItem key={c.id} value={c.id}>
                     {c.id}
                   </MenuItem>
-                ))} */}
+                ))}
                 </Select>
               </div>
 
