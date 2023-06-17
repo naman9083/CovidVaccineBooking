@@ -56,7 +56,7 @@ const covi = makeStyles(() => ({
     padding: 20,
     width: "100%",
     fontFamily: "Roboto",
-    textalign: "justify",
+    
     fontSize: "40px",
     color: "#000",
     backgroundColor: "#edffff",
@@ -81,14 +81,14 @@ const useStyles = makeStyles(() => ({
 const aboutUsStyles = makeStyles(() => ({
   left: {
     width: "40%",
-    textalign: "center",
+    
     fontFamily: "Roboto",
     fontSize: "20px",
     color: "#000",
   },
   right: {
     width: "50%",
-    textalign: "center",
+    
     fontFamily: "Roboto",
     fontSize: "20px",
     color: "#fff",
@@ -103,7 +103,7 @@ const aboutUsStyles = makeStyles(() => ({
   about: {
     width: "100%",
 
-    textalign: "justify",
+    
     textAnchor: "middle",
 
     fontFamily: "Roboto",
@@ -125,7 +125,7 @@ const precauseStyles = makeStyles(() => ({
 
     wordWrap: "break-word",
 
-    textalign: "justify",
+    
     textAnchor: "middle",
     fontFamily: "Roboto",
     fontSize: "20px",
@@ -139,7 +139,7 @@ const precauseStyles = makeStyles(() => ({
   },
   about: {
     width: "100%",
-    textalign: "justify",
+    
     textAnchor: "middle",
 
     fontFamily: "Roboto",
@@ -550,7 +550,7 @@ const HomePage = () => {
       <div id="covid19" className={coviStyle.main}>
         <div className={coviStyle.left}>
           <Typography
-            textalign={"justify"}
+           
             variant="h3"
             component="div"
             gutterBottom
@@ -558,7 +558,7 @@ const HomePage = () => {
             COVID-19
           </Typography>
           <Typography
-            textalign={"justify"}
+            
             variant="h6"
             component="div"
             gutterBottom
@@ -597,7 +597,7 @@ const HomePage = () => {
         </div>
         <div className={precautionS.right}>
           <Typography
-            textalign={"justify"}
+            
             variant="h3"
             component="div"
             gutterBottom
@@ -605,7 +605,7 @@ const HomePage = () => {
             Precautions from COVID-19
           </Typography>
           <Typography
-            textalign={"justify"}
+            
             variant="h6"
             component="div"
             gutterBottom
@@ -648,7 +648,7 @@ const HomePage = () => {
       <div id="aboutUs" className={about.main}>
         <div className={about.left}>
           <Typography
-            textalign={"justify"}
+            
             variant="h3"
             component="div"
             gutterBottom
@@ -656,7 +656,7 @@ const HomePage = () => {
             Our Mission
           </Typography>
           <Typography
-            textalign={"justify"}
+            
             variant="h6"
             component="div"
             gutterBottom

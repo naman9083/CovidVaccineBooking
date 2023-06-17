@@ -338,7 +338,7 @@ const AdminPanel = () => {
       }}
     >
       <Typography
-        textAlign={"justify"}
+      
         variant="h3"
         component="div"
         gutterBottom
@@ -458,7 +458,7 @@ const AdminPanel = () => {
               display: "flex",
               justifyContent: "center",
             }}
-            statesStyle={{ ul: statesStyle.pagination }}
+            classes={{ ul: statesStyle.pagination }}
             onChange={(_, value) => {
               setPage(value);
               window.scroll(0, 450);
@@ -556,7 +556,7 @@ const AdminPanel = () => {
           display: "flex",
           justifyContent: "center",
         }}
-        cityStyle={{ ul: cityStyle.pagination }}
+        classes={{ ul: cityStyle.pagination }}
         onChange={(_, value) => {
           setPageC(value);
           window.scroll(450, 900);
