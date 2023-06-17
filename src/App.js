@@ -17,7 +17,7 @@ const App = () => {
   const classes = useStyles();
   return (
     <div className={classes.App}>
-      <Header />
+      {/* <Header /> */}
       <Routes>
         {/* Different section of homepage */}
         <Route path="/" exact element={<HomePage />} />
