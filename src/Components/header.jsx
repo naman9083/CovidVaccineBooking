@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../Images/logo.png";
 import {
   AppBar,
+  Button,
   Container,
   ThemeProvider,
   Typography,
@@ -9,12 +10,36 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import { useNavigate } from "react-router-dom";
+import { auth } from "../Firebase";
 import AuthModal from "../Authentication/AuthModal";
+import AdminAuthModal from "../Authentication/AdminAuthModal";
+import { CovidState } from "../Config/CovidContext";
+
 const Header = () => {
-  const ScrollTopage = (id) => {
+  const [selectedOption, setSelectedOption] = useState("booking");
+
+ 
+  const ScrollTopage = (id) => {  
+    //home page
+
+    setSelectedOption(id);
     const element = document.getElementById(id);
-    element.scrollIntoView({ behavior: "smooth" });
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+    
+
+   
+    
+
+    
   };
+  const logout = () => {
+    localStorage.removeItem("user");
+    window.location.replace("/");
+    auth.signOut();
+  }
+  const { admin,isLoggedin } = CovidState();
 
   const useStyles = makeStyles({
     toolbar: {
@@ -29,7 +54,7 @@ const Header = () => {
       flexDirection: "row",
     },
     title: {
-      color: "#fff",
+     
       flex: 1,
       cursor: "pointer",
     },
@@ -40,13 +65,14 @@ const Header = () => {
     },
     otherFields: {
       display: "flex",
+      alignSelf: "right",
       alignItems: "center",
-      justifyContent: "space-between",
+      justifyContent: "space-around",
       cursor: "pointer",
-      gap: 10,
+      
       fontFamily: "Roboto",
       width: "50%",
-      marginRight: 10,
+     
       fontSize: "40px",
 
       fontWeight: "bold",
@@ -61,7 +87,7 @@ const Header = () => {
     logoBox: {
       display: "flex",
       alignItems: "center",
-      width: "20%",
+      minwidth: "20%",
       flexDirection: "row",
     },
   });
@@ -75,18 +101,38 @@ const Header = () => {
       type: "light",
     },
   });
+  
 
   return (
     <ThemeProvider theme={lightTheme}>
-      <AppBar className={classes.toolbar} position="sticky">
+      <AppBar className={classes.toolbar} position="static">
         <Container className={classes.Box}>
           <div className={classes.logoBox}>
             {/* About Us text */}
+            <Typography
+              variant="h6"
+              display={admin?"none":"block"}
+
+            >
+            {admin?"Hello! Admin":"Hello! User"}
+            </Typography>
 
             <img src={logo} alt="logo" className={classes.logo} />
             <Typography
               variant="h6"
-              onClick={() => navigate("/")}
+              onClick={
+                admin
+                  ? () => {
+                      navigate("/admin");
+                    }
+                  : () => {
+
+                      navigate("/");
+                    }
+
+              }
+            
+
               className={classes.title}
             >
               Covi-Free
@@ -95,12 +141,21 @@ const Header = () => {
 
           {/* Other Fields */}
           <div className={classes.otherFields}>
+            <div style={{display:admin?"none":"flex",
+            flexDirection:"row",alignItems:"center",justifyContent:"space-around",
+            width:"100%"
+          }}>
+           
             <Typography variant="h6" className={classes.TextButton} onClick={() => {
-                ScrollTopage("booking");
+              ScrollTopage("");
+            }} style={selectedOption === "" ? { textDecoration: "underline" } : {
               }}>Book Slot</Typography>
             <Typography variant="h6" className={classes.TextButton}
               onClick={() => {
                 ScrollTopage("covid19");
+              }}
+              style={selectedOption === "covid19" ? { textDecoration: "underline" } : {
+                textDecoration: "none",
               }}
             >
               COVID-19
@@ -108,6 +163,9 @@ const Header = () => {
             <Typography variant="h6" className={classes.TextButton}
               onClick={() => {
                 ScrollTopage("precautions");
+              }}
+              style={selectedOption === "precautions" ? { textDecoration: "underline" } : {
+                textDecoration: "none",
               }}
             >
               Precautions
@@ -117,11 +175,35 @@ const Header = () => {
               onClick={() => {
                 ScrollTopage("aboutUs");
               }}
+              style={selectedOption === "aboutUs" ? { textDecoration: "underline" } : {
+                textDecoration: "none",
+              }}
+              
             >
               About Us
             </Typography>
+            </div>
+           {!isLoggedin? 
+            ( <div style={
+              {display:"flex",
+              flexDirection:"row",
+              alignItems:"center",
+              }
 
-            <AuthModal />
+            }> 
+              <AuthModal />
+              <AdminAuthModal />
+              </div>
+            ) : (
+              <Button variant="contained" color="secondary" onClick={logout}
+    
+          
+
+
+           >Logout </Button>
+              
+            )
+           }
           </div>
         </Container>
       </AppBar>

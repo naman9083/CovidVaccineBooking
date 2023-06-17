@@ -3,12 +3,13 @@ import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../Firebase";
 import { CovidState } from "../Config/CovidContext";
+import { doc, getDoc } from "@firebase/firestore";
+import { db } from "../Firebase";
 
-const Login = ({ handleClose }) => {
+const AdminLogin = ({ handleClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { setAlert } = CovidState();
-  
+  const { setAlert ,setAdmin} = CovidState();
   const handleSubmit = async () => {
     if (!email || !password) {
       setAlert({
@@ -25,18 +26,40 @@ const Login = ({ handleClose }) => {
         message: `Login Successfull. Welcome ${result.user.email} to CoviFree`,
         open: true,
       });
-      const data ={
-        username:result.user.displayName,
-        email:result.user.email,
-        id:result.user.uid,
-        role:"user"
+      const id = auth.currentUser.uid;
+      const userRef = doc(db, "users", id);
+      await getDoc(userRef).then((docSnap) => {
+        if (docSnap.exists()) {
+          if (docSnap.data().role !== "admin") {
+            setAlert({
+              type: "error",
+              message: "You are not an admin",
+              open: true,
+            });
+            
+
+            return;
+          }
+          else{
+            const data={
+              username: docSnap.data().username,
+              email: docSnap.data().email,
+              id: docSnap.data().id,
+              role: docSnap.data().role,
+              
+
+            }
+            setAdmin(true);
+            localStorage.setItem("user", JSON.stringify(data));
+            window.location.replace("/admin");
+
+          }
+        }
+      });
 
 
-      }
-      localStorage.setItem("user", JSON.stringify(data));
 
       handleClose();
-      window.location.reload();
     } catch (error) {
       setAlert({
         open: true,
@@ -80,9 +103,9 @@ const Login = ({ handleClose }) => {
       >
         Login
       </Button>
-      
+   
     </Box>
   );
 };
 
-export default Login;
+export default AdminLogin;

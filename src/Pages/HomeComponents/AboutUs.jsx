@@ -2,7 +2,6 @@ import { makeStyles } from "@material-ui/core";
 import { Typography } from "@mui/material";
 import React from "react";
 const AboutUs = () => {
-  
   const useStyles = makeStyles(() => ({
     left: {
       width: "40%",
@@ -27,7 +26,7 @@ const AboutUs = () => {
     },
     about: {
       width: "100%",
-      
+
       textAlign: "justify",
       textAnchor: "middle",
 
@@ -37,9 +36,9 @@ const AboutUs = () => {
     },
   }));
   const classes = useStyles();
-  
+
   return (
-    <section id="aboutUs" className={classes.main}>
+    <div className={classes.main}>
       <div className={classes.left}>
         <Typography
           textAlign={"justify"}
@@ -70,7 +69,7 @@ const AboutUs = () => {
           alt=""
         />
       </div>
-    </section>
+    </div>
   );
 };
 

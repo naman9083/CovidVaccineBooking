@@ -1,20 +1,19 @@
-import { Avatar, Box, Button, TextField } from "@material-ui/core";
-import React, { useRef, useState } from "react";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { Box, Button, TextField } from "@material-ui/core";
+import React, { useState } from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../Firebase";
 import { CovidState } from "../Config/CovidContext";
+
+import { doc, setDoc } from "@firebase/firestore";
+import { db } from "../Firebase";
 
 const SignUp = ({ handleClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [username, setUsername] = useState("");
-  const {alert, setAlert} = CovidState();
-  const inputFile = useRef(null);
-  const onButtonClick = () => {
-    // `current` points to the mounted file input element
-    inputFile.current.click();
-  };
+  const { setAlert, admin, setLoggedin } = CovidState();
+
   const handleSubmit = async () => {
     if (password !== confirmPassword) {
       setAlert({
@@ -25,15 +24,36 @@ const SignUp = ({ handleClose }) => {
       return;
     }
     try {
-      const result = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
+      await createUserWithEmailAndPassword(auth, email, password);
+ 
+        const id = auth.currentUser.uid;
+        const userRef = doc(db, "users", id);
+        await setDoc(userRef, {
+          username: username,
+          email: email,
+          id: id,
+          role: "user",
+          vaccineCount: 0,
+          boosterCount: 0,
+          vaccineDate: "",
+          boosterDate: "",
+        });
+        const data ={
+          username:auth.currentUser.displayName,
+          email:auth.currentUser.email,
+          id:auth.currentUser.uid,
+          role:"user"
+  
+  
+        }
+        localStorage.setItem("user", JSON.stringify(data));
+        
       
+      setLoggedin(true);
+
       setAlert({
         type: "success",
-        message: "Sign Up Successfull. Welcome to Crypto Tracker",
+        message: "Sign Up Successfull. Welcome to CoviFree",
         open: true,
       });
       handleClose();
@@ -51,33 +71,6 @@ const SignUp = ({ handleClose }) => {
       p={3}
       style={{ display: "flex", flexDirection: "column", gap: "20px" }}
     >
-      <Avatar
-        src= { "https://www.flaticon.com/svg/static/icons/svg/3135/3135715.svg"}
-        align="center"
-        onClick={onButtonClick}
-        style={{
-          width: 100,
-          height: 100,
-          margin: "auto",
-          cursor: "pointer",
-          backgroundColor: "gold",
-        }}
-      />
-      <input
-        type="file"
-        id="file"
-        ref={inputFile}
-        // onChange={(e) =>
-        //   handleImageChange(
-        //     e.target.files[0],
-        //     setPic,
-        //     setAlert,
-        //     setProgress,
-        //     setImgLoading
-        //   )
-        // }
-        style={{ display: "none" }}
-      />
       <TextField
         label="Enter Name"
         type="text"

@@ -5,10 +5,11 @@ import { makeStyles } from "@material-ui/styles";
 import Header from "./Components/header";
 import Alert from "./Components/Alert";
 import HomePage from "./Pages/HomePage";
+import AdminPanel from "./Pages/AdminPanel";
 const App = () => {
   const useStyles = makeStyles({
     App: {
-      backgroundColor: "#f5f5f5",
+      backgroundColor: "#fff",
       color: "white",
       minHeight: "100vh",
     },
@@ -17,7 +18,13 @@ const App = () => {
   return (
     <div className={classes.App}>
       <Header />
-      <HomePage />
+      <Routes>
+        {/* Different section of homepage */}
+        <Route path="/" element={<HomePage />} />
+
+        <Route path="/admin" element={<AdminPanel />} />
+      </Routes>
+
       <Alert />
     </div>
   );

@@ -21,6 +21,7 @@ const Alert = () => {
         severity={alert.type}
         elevation={10}
         variant="filled"
+        
       >
         {alert.message}
       </MuiAlert>

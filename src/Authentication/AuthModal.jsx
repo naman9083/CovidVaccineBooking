@@ -5,8 +5,8 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import { AppBar, Box, Button, Tab, Tabs } from "@material-ui/core";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { auth } from "../Firebase";
-
+import { auth,db } from "../Firebase";
+import { doc, setDoc } from "@firebase/firestore";
 import GoogleButton from "react-google-button";
 import { CovidState } from "../Config/CovidContext";
 import Login from "./Login";
@@ -43,7 +43,6 @@ const useStyles = makeStyles((theme) => ({
     padding: 5,
     color: "#fff",
     "&:hover": {
-      backgroundColor: "#fff",
       fontWeight: "bold",
       color: "orange",
       border: "2px solid orange",
@@ -54,19 +53,44 @@ const useStyles = makeStyles((theme) => ({
 const AuthModal = () => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState(0);
   const googleProvider = new GoogleAuthProvider();
+  const [value, setValue] = useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  const { setAlert } = CovidState();
+  const { setAlert,setLoggedin } = CovidState();
   const signInWithGoogle = () => {
-    signInWithPopup(auth, googleProvider).then((result) => {
+    signInWithPopup(auth, googleProvider).then(async(result) => {
       setAlert({
         type: "success",
-        message: `Logged In Successfully. Welcome ${result.user.email} to Crypto Tracker`,
+        message: `Logged In Successfully. Welcome ${result.user.email} to CoviFree`,
         open: true,
       });
+      const id = auth.currentUser.uid;
+        const userRef = doc(db, "users", id);
+        await setDoc(userRef, {
+          username: result.user.displayName,
+          email: result.user.email,
+          id: id,
+          role: "user",
+          vaccineCount: 0,
+          boosterCount: 0,
+          vaccineDate: "",
+          boosterDate: "",
+
+        });
+      const data ={
+        username:result.user.displayName,
+        email:result.user.email,
+        id:result.user.uid,
+        role:"user"
+
+
+      }
+      localStorage.setItem("user", JSON.stringify(data));
+      
+
+      setLoggedin(true);
 
     }).catch((error) => {
       setAlert({
@@ -92,7 +116,7 @@ const AuthModal = () => {
         
         onClick={handleOpen}
       >
-        Login/Signup
+       User
       </Button>
       <Modal
         aria-labelledby="transition-modal-title"
@@ -123,10 +147,12 @@ const AuthModal = () => {
               
               </Tabs>
             </AppBar>
-            {value === 0 && <Login handleClose={handleClose} />}
+            {value === 0 &&<Login handleClose={handleClose}/>}
             {value === 1 && <SignUp handleClose={handleClose} />}
             <Box className={classes.google}>
-              <span>OR</span>
+              <span style={{
+                color: "black",
+              }}>OR</span>
               <GoogleButton
                 style={{ width: "100%", outline: "none", border: "none" }}
                 onClick={() => {
