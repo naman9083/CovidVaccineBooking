@@ -51,6 +51,7 @@ const useStyles = makeStyles({
     color: "#fff",
     "&:hover": {
       // light shade of the backgroundColor
+      backgroundColor: "#017e7e",
       color: "orange",
     },
   },

@@ -509,8 +509,10 @@ const AdminPanel = () => {
               width: "100%",
               display: "flex",
               justifyContent: "center",
+              color: "pink",
+              backgroundColor: "transparent",
             }}
-            classes={{ ul: statesStyle.pagination }}
+           
             onChange={(_, value) => {
               setPageC(value);
               window.scroll(450, 900);
