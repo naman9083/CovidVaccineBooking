@@ -48,6 +48,7 @@ const ConfirmationPopUp = ({ slot, index }) => {
           display: "flex",
           flexDirection: "column",
           gap: 10,
+          
           padding: 10,
           width: "30vw",
           backgroundColor: "white",

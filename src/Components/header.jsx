@@ -1,37 +1,37 @@
 import React, { useState } from "react";
 import logo from "../Images/logo.png";
 import {
-  AppBar,
   Button,
-  Container,
   Typography,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
-import { useNavigate } from "react-router-dom";
 import { auth } from "../Firebase";
 import AuthModal from "../Authentication/AuthModal";
 import AdminAuthModal from "../Authentication/AdminAuthModal";
 import { CovidState } from "../Config/CovidContext";
 const useStyles = makeStyles({
-  toolbar: {
-    width: "100%",
-    backgroundColor: "#017e7e",
-    color: "#fff",
-  },
+ 
   Box: {
     display: "flex",
     alignItems: "center",
     backgroundColor: "#017e7e",
+    maxwidth: "100%",
+    paddingLeft: 40,
+    paddingRight: 40,
+    paddingTop: 10,
+    paddingBottom: 10,
+
+    height: 80,
     justifyContent: "space-between",
     flexDirection: "row",
   },
   title: {
     flex: 1,
-    cursor: "pointer",
+    
   },
   logo: {
     width: 100,
-    cursor: "pointer",
+    
   },
   otherFields: {
     display: "flex",
@@ -48,6 +48,8 @@ const useStyles = makeStyles({
     fontWeight: "bold",
   },
   TextButton: {
+    backgroundColor: "#017e7e",
+    color: "#fff",
     "&:hover": {
       // light shade of the backgroundColor
       color: "orange",
@@ -80,16 +82,15 @@ const Header = () => {
   };
   const { admin, isLoggedin } = CovidState();
 
-  const navigate = useNavigate();
   const classes = useStyles();
   
 
   return (
-    <AppBar className={classes.toolbar} position="static">
-      <Container className={classes.Box}>
+   
+      <div className={classes.Box}>
         <div className={classes.logoBox}>
           {/* About Us text */}
-          <Typography variant="h6" display={admin ? "none" : "block"}>
+          <Typography variant="h6">
             {admin ? "Hello! Admin" : "Hello! User"}
           </Typography>
 
@@ -98,15 +99,7 @@ const Header = () => {
            />
           <Typography
             variant="h6"
-            onClick={
-              admin
-                ? () => {
-                    navigate("/admin");
-                  }
-                : () => {
-                    navigate("/");
-                  }
-            }
+            
             className={classes.title}
           >
             Covi-Free
@@ -117,7 +110,7 @@ const Header = () => {
         <div className={classes.otherFields}>
           <div
             style={{
-              display: admin ? "none" : "flex",
+              display: "flex",
               flexDirection: "row",
               alignItems: "center",
               justifyContent: "space-around",
@@ -204,8 +197,8 @@ const Header = () => {
             </Button>
           )}
         </div>
-      </Container>
-    </AppBar>
+      </div>
+    
   );
 };
 
