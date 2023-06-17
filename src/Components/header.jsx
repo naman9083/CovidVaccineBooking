@@ -23,6 +23,7 @@ const useStyles = makeStyles({
     Box: {
       display: "flex",
       alignItems: "center",
+      backgroundColor: "#017e7e",
       justifyContent: "space-between",
       flexDirection: "row",
     },
