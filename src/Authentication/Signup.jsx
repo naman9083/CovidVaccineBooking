@@ -12,7 +12,7 @@ const SignUp = ({ handleClose }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [username, setUsername] = useState("");
-  const { setAlert, admin, setLoggedin } = CovidState();
+  const { setAlert, setLoggedin } = CovidState();
 
   const handleSubmit = async () => {
     if (password !== confirmPassword) {
