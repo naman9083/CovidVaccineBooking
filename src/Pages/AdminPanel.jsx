@@ -28,51 +28,7 @@ import { db } from "../Firebase";
 import { Pagination } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { CovidState } from "../Config/CovidContext";
-const citiesStyles = makeStyles({
-  table: {
-    width: "100%",
-  },
-  row: {
-    backgroundColor: "#fff",
-    cursor: "pointer",
-    "&:hover": {
-      backgroundColor: "#f5f5f5",
-    },
-    fontFamily: "Montserrat",
-  },
-  pagination: {
-    "& .MuiPaginationItem-root": {
-      color: "#f51348",
-      fontWeight: "bold",
-      fontSize: "20px",
-    },
-  },
-  rowName: {
-    fontFamily: "Montserrat",
-    fontSize: "20px",
-    width: "50%",
 
-    color: "#f51348",
-  },
-  main: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    flexDirection: "column",
-    gap: 10,
-    paddingLeft: 20,
-    paddingRight: 20,
-    minHeight: "20vh",
-    maxheight: "70vh",
-    width: "98%",
-    marginTop: 20,
-
-    fontFamily: "Roboto",
-    fontSize: "40px",
-    color: "#fff",
-    backgroundColor: "#fff",
-  },
-});
 
 const statesStyles = makeStyles({
   table: {
@@ -121,7 +77,6 @@ const statesStyles = makeStyles({
 const AdminPanel = () => {
   const [value, setValue] = useState(0);
  
-  const cityStyle = citiesStyles();
   const navigate = useNavigate();
   const [states, setState] = useState([]);
   const { setAlert, admin, setStateId, stateId } = CovidState();
@@ -461,7 +416,7 @@ const AdminPanel = () => {
         </div>
       )}
       {value === 1 && (
-        <div className={cityStyle.main}>
+        <div className={statesStyle.main}>
           <p
             style={{
               color: "red",
@@ -500,13 +455,13 @@ const AdminPanel = () => {
                     .sort()
                     .slice((pageC - 1) * 6, (pageC - 1) * 6 + 6)
                     .map((city) => (
-                      <TableRow key={city} className={cityStyle.row}
+                      <TableRow key={city} className={statesStyle.row}
                       style={{ backgroundColor: "#fff" }}
                       >
                         <TableCell
                           component="th"
                           scope="row"
-                          className={cityStyle.rowName}
+                          className={statesStyle.rowName}
                         >
                           {city}
                         </TableCell>
@@ -555,7 +510,7 @@ const AdminPanel = () => {
               display: "flex",
               justifyContent: "center",
             }}
-            classes={{ ul: cityStyle.pagination }}
+            classes={{ ul: statesStyle.pagination }}
             onChange={(_, value) => {
               setPageC(value);
               window.scroll(450, 900);
