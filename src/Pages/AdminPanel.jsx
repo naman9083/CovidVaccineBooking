@@ -129,16 +129,39 @@ const statesStyles = makeStyles({
 });
 const AdminPanel = () => {
   const [value, setValue] = useState(0);
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  const Cls = styles();
+  const cityStyle = citiesStyles();
   const navigate = useNavigate();
-
   const [states, setState] = useState([]);
   const { setAlert, admin, setStateId, stateId  } = CovidState();
   const [page, setPage] = useState(1);
   const statesStyle = statesStyles();
   const [loading, setLoading] = useState(false);
+  const [pageC, setPageC] = useState(1);
+  const [loadingC, setLoadingC] = useState(false);
+  const [indexC, setIndexC] = useState(0);
+  const centre = [
+    "Apollo Hospital",
+    "Fortis Hospital",
+    "Max Hospital",
+    "Medanta Hospital",
+    "AIIMS",
+    "Sir Ganga Ram Hospital",
+    "BLK Hospital",
+    "Indraprastha Apollo Hospital",
+    "Artemis Hospital",
+    "Manipal Hospital",
+    "Kokilaben Hospital",
+    "Shaheed Bhagat Singh Nagar Hospital",
+    "Ruby Hall Clinic",
+    "Aster CMI Hospital",
+    "Nanavati Hospital",
+    "Jaslok Hospital",
+
+  ];
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
   const fetchStates = () => {
     setLoading(true);
     getDocs(collection(db, "states")).then((snapshot) => {
@@ -223,7 +246,7 @@ const AdminPanel = () => {
       }
     }
   };
-  const Cls = styles();
+  
 
 
 
@@ -232,29 +255,7 @@ const AdminPanel = () => {
 
 
   //city 
-  const [pageC, setPageC] = useState(1);
-  const [loadingC, setLoadingC] = useState(false);
-  const [indexC, setIndexC] = useState(0);
-  const centre = [
-    "Apollo Hospital",
-    "Fortis Hospital",
-    "Max Hospital",
-    "Medanta Hospital",
-    "AIIMS",
-    "Sir Ganga Ram Hospital",
-    "BLK Hospital",
-    "Indraprastha Apollo Hospital",
-    "Artemis Hospital",
-    "Manipal Hospital",
-    "Kokilaben Hospital",
-    "Shaheed Bhagat Singh Nagar Hospital",
-    "Ruby Hall Clinic",
-    "Aster CMI Hospital",
-    "Nanavati Hospital",
-    "Jaslok Hospital",
-
-  ]
-  ;
+  
   const handleAddC = async (id) => {
     try {
       setLoadingC(true);
@@ -321,7 +322,7 @@ const AdminPanel = () => {
     }
   };
 
-  const cityStyle = citiesStyles();
+  
 
 
 
@@ -572,6 +573,7 @@ const AdminPanel = () => {
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
+        width: "100%",
         gap: 20,
         color: "#000",
       }}
