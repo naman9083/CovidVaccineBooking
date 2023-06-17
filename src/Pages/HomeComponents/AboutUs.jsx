@@ -38,7 +38,7 @@ const AboutUs = () => {
   const classes = useStyles();
 
   return (
-    <section id="aboutUs" className={classes.main}>
+    <div id="aboutUs" className={classes.main}>
       <div className={classes.left}>
         <Typography
           textAlign={"justify"}
@@ -69,7 +69,7 @@ const AboutUs = () => {
           alt=""
         />
       </div>
-    </section>
+    </div>
   );
 };
 
