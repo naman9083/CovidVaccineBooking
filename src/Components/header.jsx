@@ -6,7 +6,6 @@ import { auth } from "../Firebase";
 import AuthModal from "../Authentication/AuthModal";
 import AdminAuthModal from "../Authentication/AdminAuthModal";
 import { CovidState } from "../Config/CovidContext";
-import App from "../App";
 const useStyles = makeStyles({
   Box: {
     display: "flex",
@@ -26,6 +25,7 @@ const useStyles = makeStyles({
   title: {
     flex: 1,
     color: "#fff",
+    backgroundColor: "#017e7e",
     fontFamily: "Montserrat",
     fontSize: "20px",
   },
