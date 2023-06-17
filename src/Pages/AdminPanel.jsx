@@ -311,6 +311,7 @@ const AdminPanel = () => {
         flexDirection: "column",
         gap: 20,
         color: "#000",
+        backgroundColor: "#fff",
         width: "100%",
       }}
     >
@@ -356,7 +357,9 @@ const AdminPanel = () => {
             {loading ? (
               <LinearProgress style={{ backgroundColor: "pink" }} />
             ) : (
-              <Table sx={{ minWidth: 650 }} aria-label="simple table">
+              <Table sx={{ minWidth: 650 }} aria-label="simple table"
+              style={{ backgroundColor: "#fff",width:"100%" }}
+              >
                 <TableHead>
                   <TableRow>
                     {["State", "Add", "Delete", "Status"].map((head) => (
