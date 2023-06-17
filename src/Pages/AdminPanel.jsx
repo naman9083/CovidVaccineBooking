@@ -74,11 +74,6 @@ const citiesStyles = makeStyles({
   },
 });
 
-const styles = makeStyles({
-  tabs: {
-   
-  },
-});
 const statesStyles = makeStyles({
   table: {
     minWidth: 650,
@@ -125,7 +120,7 @@ const statesStyles = makeStyles({
 });
 const AdminPanel = () => {
   const [value, setValue] = useState(0);
-  const Cls = styles();
+ 
   const cityStyle = citiesStyles();
   const navigate = useNavigate();
   const [states, setState] = useState([]);
@@ -336,7 +331,7 @@ const AdminPanel = () => {
           style={{ backgroundColor: "#fff", color: "black", boxShadow: "none" }}
         >
           <Tabs value={value} onChange={handleChange}>
-            <Tab label="Manage States" className={Cls.tabs}  style={{
+            <Tab label="Manage States" style={{
              
               fontSize: 20,
               height: 50,
@@ -351,7 +346,7 @@ const AdminPanel = () => {
              fontWeight: "bold",
              color: "#000",
            }}
-             className={Cls.tabs} />
+             />
           </Tabs>
         </AppBar>
       </center>
@@ -500,7 +495,9 @@ const AdminPanel = () => {
                     .sort()
                     .slice((pageC - 1) * 6, (pageC - 1) * 6 + 6)
                     .map((city) => (
-                      <TableRow key={city} className={cityStyle.row}>
+                      <TableRow key={city} className={cityStyle.row}
+                      style={{ backgroundColor: "#fff" }}
+                      >
                         <TableCell
                           component="th"
                           scope="row"
