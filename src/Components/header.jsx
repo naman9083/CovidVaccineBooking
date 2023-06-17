@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import logo from "../Images/logo.png";
-import { Button, Toolbar, Typography } from "@material-ui/core";
+import { AppBar, Button, Toolbar, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import { auth } from "../Firebase";
 import AuthModal from "../Authentication/AuthModal";
 import AdminAuthModal from "../Authentication/AdminAuthModal";
 import { CovidState } from "../Config/CovidContext";
+import App from "../App";
 const useStyles = makeStyles({
   Box: {
     display: "flex",
@@ -84,6 +85,7 @@ const Header = () => {
   const classes = useStyles();
 
   return (
+    <AppBar position="sticky" style={{ backgroundColor: "#017e7e" }}>
     <Toolbar
       style={{
         display: "flex",
@@ -222,6 +224,7 @@ const Header = () => {
         </div>
       </div>
     </Toolbar>
+    </AppBar>
   );
 };
 

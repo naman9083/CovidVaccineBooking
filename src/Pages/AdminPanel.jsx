@@ -65,13 +65,6 @@ const statesStyles = makeStyles({
       fontWeight: "bold",
       fontSize: "20px",
     },
-    padding: 20,
-    width: "100%",
-    display: "flex",
-    justifyContent: "center",
-    flexDirection: "row",
-    alignItems: "center",
-
   },
   rowName: {
     fontFamily: "Montserrat",
@@ -408,8 +401,15 @@ const AdminPanel = () => {
 
           <Pagination
             count={Number.parseInt(states.length) / 4 - 2}
-            classes={{ ul: statesStyle.pagination }}
-            
+            style={{
+              padding: 20,
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              flexDirection: "row",
+              alignItems: "center",
+
+            }}
            
             onChange={(_, value) => {
               setPage(value);
@@ -507,12 +507,22 @@ const AdminPanel = () => {
           </TableContainer>
           <Pagination
             count={Number.parseInt(cities[stateId].length / 4) - 2}
-            classes={{ ul: statesStyle.pagination }}
+            style={{
+              padding: 20,
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              flexDirection: "row",
+              color: "pink",
+              backgroundColor: "transparent",
             
+            
+          }}
+          
            
             onChange={(_, value) => {
               setPageC(value);
-              window.scroll(450, 900);
+              window.scroll(0,450);
             }}
           />
         </div>
