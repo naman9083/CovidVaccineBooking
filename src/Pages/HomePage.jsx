@@ -27,8 +27,8 @@ import {
 import { db } from "../Firebase";
 import { CovidState } from "../Config/CovidContext";
 // import ConfirmationPopUp from "../Pages/HomeComponents/ConfirmationPopUp";
+//
 import covid19 from "../Images/covid19.png";
-import { Stack } from "@mui/material";
 
 const covi = makeStyles(() => ({
   left: {
