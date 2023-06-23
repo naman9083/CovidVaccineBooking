@@ -27,17 +27,17 @@ import { CovidState } from "../Config/CovidContext";
 import ConfirmationPopUp from "../Pages/HomeComponents/ConfirmationPopUp";
 import covid19 from "../Images/covid19.png";
 const useStyles = makeStyles(() => ({
-  // main: {
-  //   display: "flex",
-  //   justifyContent: "space-between",
-  //   alignItems: "center",
-  //   flexDirection: "column",
-  //   gap: 20,
+  main: {
+    // display: "flex",
+    // justifyContent: "space-between",
+    // alignItems: "center",
+    // flexDirection: "column",
+    // gap: 20,
     
-  //   backgroundColor: "#ffff",
-  //   fontFamily: "Roboto",
-  //   fontSize: "40px",
-  //   color: "#fff",
+    // backgroundColor: "#ffff",
+    // fontFamily: "Roboto",
+    // fontSize: "40px",
+    // color: "#fff",
   },
 }));
 const covi = makeStyles(() => ({
@@ -102,7 +102,7 @@ const aboutUsStyles = makeStyles(() => ({
   },
   about: {
     width: "100%",
-
+    
     
     textAnchor: "middle",
 
