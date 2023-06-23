@@ -147,7 +147,7 @@ const Header = () => {
               variant="h6"
               className={classes.TextButton}
               onClick={() => {
-                ScrollTopage("");
+                ScrollTopage("/");
               }}
               style={
                 selectedOption === "" ? { textDecoration: "underline" } : {}

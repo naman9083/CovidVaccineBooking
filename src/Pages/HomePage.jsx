@@ -312,8 +312,9 @@ const HomePage = () => {
   const about = aboutUsStyles();
   const coviStyle = covi();
   return (
-    <Stack>
-      <div id="" className={bookingStyle.main}>
+    <div>
+      <div id="/" className={bookingStyle.main}>
+       <Stack>
         <center>
           <Typography
             className={bookingStyle.title}
@@ -543,6 +544,7 @@ const HomePage = () => {
             ></div>
           )}
         </center>
+        </Stack>
       </div>
 
       <div id="covid19" className={coviStyle.main}>
@@ -645,7 +647,7 @@ const HomePage = () => {
           />
         </div>
       </div>
-    </Stack>
+    </div>
   );
 };
 
