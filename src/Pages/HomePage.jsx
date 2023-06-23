@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Typography, makeStyles ,
+import {
+  Typography,
+  makeStyles,
   Button,
   Chip,
   LinearProgress,
@@ -54,7 +56,7 @@ const covi = makeStyles(() => ({
     height: "100vh",
     width: "100%",
     fontFamily: "Roboto",
-    
+
     fontSize: "40px",
     color: "#000",
     backgroundColor: "#edffff",
@@ -64,14 +66,16 @@ const covi = makeStyles(() => ({
 const aboutUsStyles = makeStyles(() => ({
   left: {
     width: "50%",
-    
+    padding: 20,
+
     fontFamily: "Roboto",
     fontSize: "20px",
     color: "#000",
   },
   right: {
     width: "50%",
-    
+    padding: 20,
+
     fontFamily: "Roboto",
     fontSize: "20px",
     color: "#fff",
@@ -86,8 +90,7 @@ const aboutUsStyles = makeStyles(() => ({
   },
   about: {
     width: "100%",
-    
-    
+
     textAnchor: "middle",
 
     fontFamily: "Roboto",
@@ -99,31 +102,30 @@ const aboutUsStyles = makeStyles(() => ({
 const precauseStyles = makeStyles(() => ({
   //left image
   left: {
-    width: "30%",
+    width: "50%",
     display: "flex",
     alignItems: "center",
+    padding: 20,
   },
   right: {
     width: "50%",
     color: "#000",
 
     wordWrap: "break-word",
-
-    
+    padding: 20,
     textAnchor: "middle",
     fontFamily: "Roboto",
     fontSize: "20px",
   },
   main: {
     display: "flex",
-    justifyContent: "space-around",
     flexDirection: "row",
     alignItems: "center",
     height: "100vh",
   },
   about: {
     width: "100%",
-    
+
     textAnchor: "middle",
 
     fontFamily: "Roboto",
@@ -196,7 +198,7 @@ const HomePage = () => {
     const querySnapshot = await getDocs(q);
     const cities = querySnapshot.docs.map((doc) => doc.data());
     setCity(cities);
-    
+
     setLoading(false);
   };
   const handleCityChange = (event) => {
@@ -310,7 +312,9 @@ const HomePage = () => {
   const about = aboutUsStyles();
   const coviStyle = covi();
   return (
-    <div>
+    <div
+      
+    >
       <div id="" className={bookingStyle.main}>
         <center>
           <Typography
@@ -349,14 +353,14 @@ const HomePage = () => {
                   }}
                 >
                   {states.map((row) =>
-                  row.status ? (
-                    <MenuItem key={row.name} value={row.name}>
-                      {row.name}
-                    </MenuItem>
-                  ) : (
-                    <></>
-                  )
-                )}
+                    row.status ? (
+                      <MenuItem key={row.name} value={row.name}>
+                        {row.name}
+                      </MenuItem>
+                    ) : (
+                      <></>
+                    )
+                  )}
                 </Select>
                 <Select
                   variant="outlined"
@@ -375,10 +379,10 @@ const HomePage = () => {
                   }}
                 >
                   {city.sort().map((c) => (
-                  <MenuItem key={c.id} value={c.id}>
-                    {c.id}
-                  </MenuItem>
-                ))}
+                    <MenuItem key={c.id} value={c.id}>
+                      {c.id}
+                    </MenuItem>
+                  ))}
                 </Select>
               </div>
 
@@ -545,20 +549,10 @@ const HomePage = () => {
 
       <div id="covid19" className={coviStyle.main}>
         <div className={coviStyle.left}>
-          <Typography
-           
-            variant="h3"
-            component="div"
-            gutterBottom
-          >
+          <Typography variant="h3" component="div" gutterBottom>
             COVID-19
           </Typography>
-          <Typography
-            
-            variant="h6"
-            component="div"
-            gutterBottom
-          >
+          <Typography variant="h6" component="div" gutterBottom>
             COVID-19, also known as coronavirus disease 2019, is a respiratory
             illness caused by a virus called SARS-CoV-2. The virus spreads
             through respiratory droplets produced when an infected person coughs
@@ -592,20 +586,10 @@ const HomePage = () => {
           />
         </div>
         <div className={precautionS.right}>
-          <Typography
-            
-            variant="h3"
-            component="div"
-            gutterBottom
-          >
+          <Typography variant="h3" component="div" gutterBottom>
             Precautions from COVID-19
           </Typography>
-          <Typography
-            
-            variant="h6"
-            component="div"
-            gutterBottom
-          >
+          <Typography variant="h6" component="div" gutterBottom>
             <ul style={{ listStyleType: "none" }}>
               <li className={precautionS.listItem}>
                 Get vaccinated. The COVID-19 vaccine is the best way to protect
@@ -643,20 +627,10 @@ const HomePage = () => {
 
       <div id="aboutUs" className={about.main}>
         <div className={about.left}>
-          <Typography
-            
-            variant="h3"
-            component="div"
-            gutterBottom
-          >
+          <Typography variant="h3" component="div" gutterBottom>
             Our Mission
           </Typography>
-          <Typography
-            
-            variant="h6"
-            component="div"
-            gutterBottom
-          >
+          <Typography variant="h6" component="div" gutterBottom>
             The COVID‐19 pandemic is still threatening the world. A vaccine is a
             great hope to find a solution to control the virus infection. Many
             coronavirus vaccines are now available. However, to be effective, a

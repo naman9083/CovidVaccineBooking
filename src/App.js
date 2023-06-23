@@ -11,6 +11,8 @@ const useStyles = makeStyles({
     backgroundColor: "#fff",
     color: "white",
     minHeight: "100vh",
+    width: "100%",
+    overflowX: "hidden",
   },
 });
 const App = () => {
