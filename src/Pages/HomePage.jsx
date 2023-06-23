@@ -26,7 +26,22 @@ import { db } from "../Firebase";
 import { CovidState } from "../Config/CovidContext";
 import ConfirmationPopUp from "../Pages/HomeComponents/ConfirmationPopUp";
 import covid19 from "../Images/covid19.png";
-
+const useStyles = makeStyles(() => ({
+  main: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    flexDirection: "column",
+    gap: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
+    maxwidth: "90%",
+    backgroundColor: "#ffff",
+    fontFamily: "Roboto",
+    fontSize: "40px",
+    color: "#fff",
+  },
+}));
 const covi = makeStyles(() => ({
   left: {
     width: "50%",
@@ -52,8 +67,6 @@ const covi = makeStyles(() => ({
     alignItems: "center",
     flexDirection: "row",
     height: "100vh",
-
-    padding: 20,
     width: "100%",
     fontFamily: "Roboto",
     
@@ -62,25 +75,10 @@ const covi = makeStyles(() => ({
     backgroundColor: "#edffff",
   },
 }));
-const useStyles = makeStyles(() => ({
-  main: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    flexDirection: "column",
-    gap: 20,
-    paddingLeft: 20,
-    paddingRight: 20,
-    maxwidth: "90%",
-    backgroundColor: "#ffff",
-    fontFamily: "Roboto",
-    fontSize: "40px",
-    color: "#fff",
-  },
-}));
+
 const aboutUsStyles = makeStyles(() => ({
   left: {
-    width: "40%",
+    width: "50%",
     
     fontFamily: "Roboto",
     fontSize: "20px",
