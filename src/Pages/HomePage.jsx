@@ -96,6 +96,7 @@ const aboutUsStyles = makeStyles(() => ({
   main: {
     display: "flex",
     justifyContent: "space-between",
+    width: "100%",
     alignItems: "center",
     height: "100vh",
     backgroundColor: "#edffff",
