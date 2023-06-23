@@ -33,9 +33,7 @@ const useStyles = makeStyles(() => ({
     alignItems: "center",
     flexDirection: "column",
     gap: 20,
-    paddingLeft: 20,
-    paddingRight: 20,
-    maxwidth: "90%",
+    
     backgroundColor: "#ffff",
     fontFamily: "Roboto",
     fontSize: "40px",
