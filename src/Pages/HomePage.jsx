@@ -26,8 +26,7 @@ import {
 } from "@firebase/firestore";
 import { db } from "../Firebase";
 import { CovidState } from "../Config/CovidContext";
-// import ConfirmationPopUp from "../Pages/HomeComponents/ConfirmationPopUp";
-//
+import ConfirmationPopUp from "../Pages/HomeComponents/ConfirmationPopUp";
 import covid19 from "../Images/covid19.png";
 
 const covi = makeStyles(() => ({
@@ -188,6 +187,7 @@ const HomePage = () => {
   const [centreAvailable, setCentreAvailable] = useState(false);
   const { isLoggedin, setAlert, setConfirmOpen } = CovidState();
   const [loading, setLoading] = useState(false);
+  const [centreLoading, setCentreLoading] = useState(false);
   const [index, setIndex] = useState(0);
 
   const handleStateChange = async (event) => {
@@ -268,7 +268,7 @@ const HomePage = () => {
           type: "warning",
         });
       } else {
-        setLoading(true);
+        setCentreLoading(true);
         const docRef = doc(db, "cities", centre);
         // decrease the count of available slots
         if (centreDetails.slots > 0) {
@@ -279,7 +279,7 @@ const HomePage = () => {
               const newDocRef = doc(db, "cities", centre);
               setDoc(newDocRef, { slots: newCount }, { merge: true }).then(
                 () => {
-                  setLoading(false);
+                  setCentreLoading(false);
                   setAlert({
                     open: true,
                     message: "Slot Booked Successfully",
@@ -297,7 +297,7 @@ const HomePage = () => {
                 message: "No Vaccination Center Found",
                 type: "error",
               });
-              setLoading(false);
+              setCentreLoading(false);
             }
           });
         }
@@ -314,7 +314,6 @@ const HomePage = () => {
   return (
     <div>
       <div id="/" className={bookingStyle.main}>
-       
         <center>
           <Typography
             className={bookingStyle.title}
@@ -342,7 +341,6 @@ const HomePage = () => {
                   value={state}
                   maxRows={1}
                   margin="dense"
-                  
                   onChange={handleStateChange}
                   style={{
                     width: 200,
@@ -414,6 +412,7 @@ const HomePage = () => {
                 width: "100%",
               }}
             >
+              
               <TableContainer component={Paper}>
                 <Table className={bookingStyle.table} aria-label="simple table">
                   <TableHead>
@@ -525,7 +524,11 @@ const HomePage = () => {
               >
                 Book
               </Button>
-              
+              {centreLoading ? (
+                <></>
+              ) : (
+                <ConfirmationPopUp slot={centreDetails} index={index} />
+              )}
             </div>
           ) : (
             <div
