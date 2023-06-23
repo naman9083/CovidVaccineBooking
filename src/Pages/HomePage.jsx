@@ -523,11 +523,6 @@ const HomePage = () => {
               >
                 Book
               </Button>
-              {centreLoading ? (
-                <></>
-              ) : (
-                <ConfirmationPopUp slot={centreDetails} index={index} />
-              )}
             </div>
           ) : (
             <div
@@ -540,6 +535,11 @@ const HomePage = () => {
                 width: "100%",
               }}
             ></div>
+          )}
+          {centreLoading ? (
+            <></>
+          ) : (
+            <ConfirmationPopUp slot={centreDetails} index={index} />
           )}
         </center>
       </div>
