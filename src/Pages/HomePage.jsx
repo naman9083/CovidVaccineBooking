@@ -28,6 +28,7 @@ import { db } from "../Firebase";
 import { CovidState } from "../Config/CovidContext";
 import ConfirmationPopUp from "../Pages/HomeComponents/ConfirmationPopUp";
 import covid19 from "../Images/covid19.png";
+import { Stack } from "@mui/material";
 
 const covi = makeStyles(() => ({
   left: {
@@ -165,7 +166,6 @@ const bookingStyles = makeStyles(() => ({
     color: "#017e7e",
     fontWeight: "bold",
     flex: 1,
-    cursor: "pointer",
     fontSize: "40px",
   },
   calendar: {
@@ -182,8 +182,8 @@ const HomePage = () => {
   const precautionS = precauseStyles();
   const [state, setState] = useState("Select");
   const [city, setCity] = useState([]);
-  const [centre, setCentre] = useState("");
   const [states, setStates] = useState([]);
+  const [centre, setCentre] = useState("");
   const [centreDetails, setCentreDetails] = useState(null);
   const [centreAvailable, setCentreAvailable] = useState(false);
   const { isLoggedin, setAlert, setConfirmOpen } = CovidState();
@@ -312,9 +312,7 @@ const HomePage = () => {
   const about = aboutUsStyles();
   const coviStyle = covi();
   return (
-    <div
-      
-    >
+    <Stack>
       <div id="" className={bookingStyle.main}>
         <center>
           <Typography
@@ -343,7 +341,7 @@ const HomePage = () => {
                   value={state}
                   maxRows={1}
                   margin="dense"
-                  placeholder="Select State"
+                  
                   onChange={handleStateChange}
                   style={{
                     width: 200,
@@ -647,7 +645,7 @@ const HomePage = () => {
           />
         </div>
       </div>
-    </div>
+    </Stack>
   );
 };
 
