@@ -26,7 +26,7 @@ import {
 } from "@firebase/firestore";
 import { db } from "../Firebase";
 import { CovidState } from "../Config/CovidContext";
-import ConfirmationPopUp from "../Pages/HomeComponents/ConfirmationPopUp";
+// import ConfirmationPopUp from "../Pages/HomeComponents/ConfirmationPopUp";
 import covid19 from "../Images/covid19.png";
 import { Stack } from "@mui/material";
 
@@ -314,7 +314,7 @@ const HomePage = () => {
   return (
     <div>
       <div id="/" className={bookingStyle.main}>
-       <Stack>
+       
         <center>
           <Typography
             className={bookingStyle.title}
@@ -525,11 +525,7 @@ const HomePage = () => {
               >
                 Book
               </Button>
-              {loading ? (
-                <></>
-              ) : (
-                <ConfirmationPopUp slot={centreDetails} index={index} />
-              )}
+              
             </div>
           ) : (
             <div
@@ -544,7 +540,6 @@ const HomePage = () => {
             ></div>
           )}
         </center>
-        </Stack>
       </div>
 
       <div id="covid19" className={coviStyle.main}>
