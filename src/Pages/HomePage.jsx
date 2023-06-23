@@ -187,7 +187,7 @@ const HomePage = () => {
   const [centreAvailable, setCentreAvailable] = useState(false);
   const { isLoggedin, setAlert, setConfirmOpen } = CovidState();
   const [loading, setLoading] = useState(false);
-  const [centreLoading, setCentreLoading] = useState(false);
+  const [centreLoading, setCentreLoading] = useState(true);
   const [index, setIndex] = useState(0);
 
   const handleStateChange = async (event) => {
@@ -412,7 +412,6 @@ const HomePage = () => {
                 width: "100%",
               }}
             >
-              
               <TableContainer component={Paper}>
                 <Table className={bookingStyle.table} aria-label="simple table">
                   <TableHead>

@@ -1,8 +1,7 @@
-import { Backdrop, Modal, Typography } from "@material-ui/core";
+import { Backdrop, Button, Modal, Typography } from "@material-ui/core";
 import { makeStyles } from "@mui/styles";
-import React from "react";
+import React, { useState } from "react";
 import { auth } from "../../Firebase";
-import { CovidState } from "../../Config/CovidContext";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -24,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 const ConfirmationPopUp = ({ slot, index }) => {
-  const { confirmOpen, setConfirmOpen } = CovidState();
+  const [confirmOpen, setConfirmOpen] = useState(false);
 
   const handleClose = () => {
     setConfirmOpen(false);
@@ -32,6 +31,13 @@ const ConfirmationPopUp = ({ slot, index }) => {
   const classes = useStyles();
 
   return (
+    <div>
+      <Button
+        variant="contained"
+        color="secondary"
+        onClick={() => setConfirmOpen(true)}
+
+      >Get Details</Button>
     <Modal
       aria-labelledby="transition-modal-title"
       aria-describedby="transition-modal-description"
@@ -105,6 +111,7 @@ const ConfirmationPopUp = ({ slot, index }) => {
         </div>
       </div>
     </Modal>
+    </div>
   );
 };
 
