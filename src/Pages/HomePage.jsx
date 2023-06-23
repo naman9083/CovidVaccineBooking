@@ -140,6 +140,7 @@ const precauseStyles = makeStyles(() => ({
       marginRight: "10px",
     },
   },
+  //
 }));
 const bookingStyles = makeStyles(() => ({
   main: {
