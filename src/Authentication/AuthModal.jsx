@@ -146,6 +146,7 @@ const AuthModal = () => {
               <span
                 style={{
                   color: "black",
+                  textAlign: "center",
                 }}
               >
                 OR
