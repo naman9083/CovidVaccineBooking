@@ -67,6 +67,8 @@ const covi = makeStyles(() => ({
     alignItems: "center",
     flexDirection: "row",
     height: "100vh",
+
+    padding: 20,
     width: "100%",
     fontFamily: "Roboto",
     
@@ -96,6 +98,7 @@ const aboutUsStyles = makeStyles(() => ({
     justifyContent: "space-between",
     width: "100%",
     alignItems: "center",
+    padding: 20,
     height: "100vh",
     backgroundColor: "#edffff",
   },
