@@ -26,20 +26,7 @@ import { db } from "../Firebase";
 import { CovidState } from "../Config/CovidContext";
 import ConfirmationPopUp from "../Pages/HomeComponents/ConfirmationPopUp";
 import covid19 from "../Images/covid19.png";
-const useStyles = makeStyles(() => ({
-  main: {
-    // display: "flex",
-    // justifyContent: "space-between",
-    // alignItems: "center",
-    // flexDirection: "column",
-    // gap: 20,
-    
-    // backgroundColor: "#ffff",
-    // fontFamily: "Roboto",
-    // fontSize: "40px",
-    // color: "#fff",
-  },
-}));
+
 const covi = makeStyles(() => ({
   left: {
     width: "50%",
@@ -65,8 +52,6 @@ const covi = makeStyles(() => ({
     alignItems: "center",
     flexDirection: "row",
     height: "100vh",
-
-    padding: 20,
     width: "100%",
     fontFamily: "Roboto",
     
@@ -96,7 +81,6 @@ const aboutUsStyles = makeStyles(() => ({
     justifyContent: "space-between",
     width: "100%",
     alignItems: "center",
-    padding: 20,
     height: "100vh",
     backgroundColor: "#edffff",
   },
@@ -322,11 +306,10 @@ const HomePage = () => {
     return unsubscribe;
     // eslint-disable-next-line
   }, []);
-  const classes = useStyles();
   const about = aboutUsStyles();
   const coviStyle = covi();
   return (
-    <div className={classes.main}>
+    <div>
       <div id="" className={bookingStyle.main}>
         <center>
           <Typography
